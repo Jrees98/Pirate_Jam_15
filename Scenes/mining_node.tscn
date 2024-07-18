@@ -1,5 +1,52 @@
-[gd_scene format=3 uid="uid://djx5id5hn8f00"]
+[gd_scene load_steps=8 format=3 uid="uid://djx5id5hn8f00"]
+
+[ext_resource type="Texture2D" uid="uid://dmq8q4yjly7m1" path="res://Assets/mining_rock.png" id="1_cf8fd"]
+[ext_resource type="Script" path="res://Scripts/mining_node.gd" id="1_d0vit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifrfd"]
+size = Vector2(145, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkgeg"]
+atlas = ExtResource("1_cf8fd")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5qml"]
+atlas = ExtResource("1_cf8fd")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3p8s"]
+atlas = ExtResource("1_cf8fd")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hler"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkgeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5qml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3p8s")
+}],
+"loop": true,
+"name": &"rock_hit",
+"speed": 3.0
+}]
 
 [node name="MiningNode" type="Node2D"]
+script = ExtResource("1_d0vit")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 15)
+shape = SubResource("RectangleShape2D_ifrfd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5hler")
+animation = &"rock_hit"
+frame = 1
+frame_progress = 0.501918
