@@ -45,10 +45,8 @@ func coal_chance():
 	var number = rng.randi_range(1,Global.coal_chance)
 	if number == 1:
 		Global.total_coal +=1
-	print("Coal" + str(number))
 	
 func gem_chance():
 	var number = rng.randi_range(1,Global.gem_chance)
 	if number == 1:
 		Global.total_gems +=1
-	print("Gem" + str(number))
