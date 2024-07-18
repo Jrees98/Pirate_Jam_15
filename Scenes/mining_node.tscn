@@ -53,6 +53,9 @@ animation = &"rock_hit"
 frame = 1
 frame_progress = 0.501918
 
+[node name="MiningCoolDown" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="timeout" from="MiningCoolDown" to="." method="_on_mining_cool_down_timeout"]
