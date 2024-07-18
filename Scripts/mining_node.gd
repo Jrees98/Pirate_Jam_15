@@ -20,7 +20,8 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		can_mine = true
 		var rock_node_ui = player_instance.get_node("RockNodeUI")
-		var label = rock_node_ui.get_node("InteractLabel")
+		var hbox = rock_node_ui.get_node("HBoxContainer")
+		var label = hbox.get_node("InteractLabel")
 		label.show()
 
 # Called when the body exits the area
@@ -28,7 +29,8 @@ func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		can_mine = false
 		var rock_node_ui = player_instance.get_node("RockNodeUI")
-		var label = rock_node_ui.get_node("InteractLabel")
+		var hbox = rock_node_ui.get_node("HBoxContainer")
+		var label = hbox.get_node("InteractLabel")
 		label.hide()
 		$AnimatedSprite2D.stop()
 		$MiningCoolDown.stop()
