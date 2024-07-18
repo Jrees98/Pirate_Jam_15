@@ -10,4 +10,4 @@ script = ExtResource("1_q3ypa")
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
-position = Vector2(436, 13)
+position = Vector2(238, -1)

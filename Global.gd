@@ -1,5 +1,6 @@
 extends Node
 var total_coal : int
+var global_player_position : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
