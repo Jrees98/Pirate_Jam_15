@@ -11,9 +11,3 @@ func _process(delta):
 	pass
 
 
-func _on_mining_node_player_entered():
-	$Player/RockNodeUI/Label.show()
-
-
-func _on_mining_node_player_exited():
-	$Player/RockNodeUI/Label.hide()

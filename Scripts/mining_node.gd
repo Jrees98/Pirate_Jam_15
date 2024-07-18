@@ -1,25 +1,49 @@
 extends Node2D
-signal player_entered
-signal player_exited
+
+var player_scene = preload("res://Scenes/player.tscn")
+var player_instance
+var can_mine = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	# Instantiate the player once and add it to the scene
+	player_instance = player_scene.instantiate()
+	add_child(player_instance)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if can_mine and Input.is_action_pressed("interact"):
+		mine()
 
-
+# Called when the body enters the area
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
-		player_entered.emit()
+		can_mine = true
+		var rock_node_ui = player_instance.get_node("RockNodeUI")
+		var label = rock_node_ui.get_node("InteractLabel")
+		label.show()
 
-
-func _on_area_2d_mouse_entered():
-	pass
-
-
+# Called when the body exits the area
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
-		player_exited.emit()
+		can_mine = false
+		var rock_node_ui = player_instance.get_node("RockNodeUI")
+		var label = rock_node_ui.get_node("InteractLabel")
+		label.hide()
+		$AnimatedSprite2D.stop()
+		$MiningCoolDown.stop()
+		
+
+
+func mine():
+	$AnimatedSprite2D.play("rock_hit")
+	$MiningCoolDown.start()
+
+
+
+func _on_mining_cool_down_timeout():
+		var rock_node_ui = player_instance.get_node("RockNodeUI")
+		var label = rock_node_ui.get_node("CoalQuantity")
+		var coal_count = Global.total_coal
+		Global.total_coal += 1
+		

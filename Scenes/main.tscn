@@ -13,6 +13,3 @@ speed = 500
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(436, 13)
-
-[connection signal="player_entered" from="MiningNode" to="." method="_on_mining_node_player_entered"]
-[connection signal="player_exited" from="MiningNode" to="." method="_on_mining_node_player_exited"]
