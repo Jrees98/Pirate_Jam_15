@@ -2,20 +2,17 @@
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
-[ext_resource type="Texture2D" uid="uid://c0ktx5pt0jw7j" path="res://icon.svg" id="3_jarkv"]
+[ext_resource type="PackedScene" uid="uid://djx5id5hn8f00" path="res://Scenes/mining_node.tscn" id="4_c3t3l"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
+position = Vector2(119, 24)
 speed = 500
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1013, 151)
-scale = Vector2(17.9141, 0.921875)
-texture = ExtResource("3_jarkv")
+[node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
+position = Vector2(436, 13)
 
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(1034, -268)
-scale = Vector2(17.9141, 0.921875)
-texture = ExtResource("3_jarkv")
+[connection signal="player_entered" from="MiningNode" to="." method="_on_mining_node_player_entered"]
+[connection signal="player_exited" from="MiningNode" to="." method="_on_mining_node_player_exited"]

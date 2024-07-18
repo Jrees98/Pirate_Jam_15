@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fabt6"]
 size = Vector2(120, 119)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(1151, 647)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_gr4sc")
@@ -19,3 +20,17 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fabt6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="RockNodeUI" type="CanvasLayer" parent="."]
+offset = Vector2(2.08165e-12, 2.08165e-12)
+transform = Transform2D(1, 0, 0, 1, 2.08165e-12, 2.08165e-12)
+
+[node name="Label" type="Label" parent="RockNodeUI"]
+visible = false
+offset_left = 934.0
+offset_top = 447.0
+offset_right = 1408.0
+offset_bottom = 535.0
+theme_override_font_sizes/font_size = 64
+text = "Press E to mine"
