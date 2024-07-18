@@ -5,6 +5,7 @@ var player_instance
 var can_mine = false
 var root
 var interact_label 
+var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	root = get_tree().root
@@ -36,8 +37,13 @@ func mine():
 	$AnimatedSprite2D.play("rock_hit")
 	$MiningCoolDown.start()
 
-
-
 func _on_mining_cool_down_timeout():
 		Global.total_coal += 1
-		
+		gem_chance()
+
+
+func gem_chance():
+	var number = rng.randi_range(0,Global.gem_chance)
+	if number == 10:
+		Global.total_gems +=1
+	print(number)

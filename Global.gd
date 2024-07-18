@@ -1,10 +1,12 @@
 extends Node
 var total_coal : int
+var total_gems : int
 var global_player_position : Vector2
+var gem_chance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	gem_chance = 10
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
