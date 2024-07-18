@@ -38,12 +38,17 @@ func mine():
 	$MiningCoolDown.start()
 
 func _on_mining_cool_down_timeout():
-		Global.total_coal += 1
 		gem_chance()
+		coal_chance()
 
-
+func coal_chance():
+	var number = rng.randi_range(1,Global.coal_chance)
+	if number == 1:
+		Global.total_coal +=1
+	print("Coal" + str(number))
+	
 func gem_chance():
-	var number = rng.randi_range(0,Global.gem_chance)
-	if number == 10:
+	var number = rng.randi_range(1,Global.gem_chance)
+	if number == 1:
 		Global.total_gems +=1
-	print(number)
+	print("Gem" + str(number))
