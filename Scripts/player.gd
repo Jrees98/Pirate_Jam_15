@@ -17,4 +17,3 @@ func _physics_process(delta):
 	
 	$RockNodeUI/HBoxContainer/CoalQuantity.text = "X" + str(Global.total_coal)
 	
-	global_position = $".".global_position

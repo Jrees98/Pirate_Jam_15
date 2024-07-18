@@ -20,7 +20,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fabt6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="RockNodeUI" type="CanvasLayer" parent="."]
 offset = Vector2(2.08165e-12, 2.08165e-12)
@@ -28,9 +28,17 @@ transform = Transform2D(1, 0, 0, 1, 2.08165e-12, 2.08165e-12)
 
 [node name="InteractLabel" type="Label" parent="RockNodeUI"]
 visible = false
-offset_top = 1134.0
-offset_right = 474.0
-offset_bottom = 1222.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -248.0
+offset_right = 237.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Press E to mine"
 

@@ -14,7 +14,6 @@ func _ready():
 func _process(delta):
 	if can_mine and Input.is_action_pressed("interact"):
 		mine()
-	interact_label.position = Global.global_player_position
 
 # Called when the body enters the area
 func _on_area_2d_body_entered(body):
