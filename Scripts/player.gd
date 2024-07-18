@@ -6,7 +6,6 @@ func _ready():
 	$RockNodeUI/HBoxContainer/CoalQuantity.text = "X" + str(Global.total_coal)
 	var global_position = $".".global_position
 	Global.global_player_position = global_position
-	print(Global.global_player_position)
 
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left","move_right")
@@ -18,3 +17,4 @@ func _physics_process(delta):
 	
 	$RockNodeUI/HBoxContainer/CoalQuantity.text = "X" + str(Global.total_coal)
 	
+	global_position = $".".global_position

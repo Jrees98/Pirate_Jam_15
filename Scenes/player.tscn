@@ -26,6 +26,14 @@ zoom = Vector2(2, 2)
 offset = Vector2(2.08165e-12, 2.08165e-12)
 transform = Transform2D(1, 0, 0, 1, 2.08165e-12, 2.08165e-12)
 
+[node name="InteractLabel" type="Label" parent="RockNodeUI"]
+visible = false
+offset_top = 1134.0
+offset_right = 474.0
+offset_bottom = 1222.0
+theme_override_font_sizes/font_size = 64
+text = "Press E to mine"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="RockNodeUI"]
 anchors_preset = 2
 anchor_top = 1.0
@@ -34,12 +42,6 @@ offset_top = -235.0
 offset_right = 351.0
 grow_vertical = 0
 alignment = 2
-
-[node name="InteractLabel" type="Label" parent="RockNodeUI/HBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Press E to mine"
 
 [node name="Sprite2D" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
 position = Vector2(117, 99)
