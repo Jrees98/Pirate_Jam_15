@@ -18,7 +18,8 @@ position = Vector2(-91, 281)
 
 [node name="TileMap" parent="." instance=ExtResource("4_qtfcr")]
 
-[node name="Area2D" parent="." instance=ExtResource("5_xqjqi")]
-position = Vector2(-1358, 329)
+[node name="Wagon" parent="." instance=ExtResource("5_xqjqi")]
+position = Vector2(-1188, 322)
 
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
+[connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
