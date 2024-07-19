@@ -53,74 +53,79 @@ grow_vertical = 0
 alignment = 2
 
 [node name="CoalSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(163.5, -217)
+position = Vector2(145.847, -210)
 scale = Vector2(2.625, 2.79167)
 texture = ExtResource("3_ligsf")
 
 [node name="CoalQuantity" type="Label" parent="RockNodeUI/HBoxContainer/CoalSprite"]
-offset_left = 31.0
-offset_top = -16.5
-offset_right = 67.0
-offset_bottom = 9.5
+offset_left = -7.80951
+offset_top = -16.8358
+offset_right = 28.1905
+offset_bottom = 9.16418
 theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
-text = "x 0"
+text = "0"
 
 [node name="BlueGemSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(438.5, -135)
-scale = Vector2(3.39583, 3.14583)
+position = Vector2(188.347, -141.5)
+scale = Vector2(3.31781, 3.14583)
 texture = ExtResource("4_njvkg")
 
 [node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/BlueGemSprite"]
-offset_left = 24.2
-offset_top = -12.4
-offset_right = 60.2
-offset_bottom = 13.6
+offset_left = -4.85889
+offset_top = -14.9404
+offset_right = 31.1411
+offset_bottom = 11.0596
 theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
-text = "x 0"
+text = "0"
 
 [node name="RedGemSprite2" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
 self_modulate = Color(1, 0.0823529, 0, 1)
-position = Vector2(167.5, -46)
+position = Vector2(90.8473, -71)
 scale = Vector2(2.9375, 3.52083)
 texture = ExtResource("4_njvkg")
 
 [node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/RedGemSprite2"]
-offset_left = 24.2
-offset_top = -12.4
-offset_right = 60.2
-offset_bottom = 13.6
+offset_left = -4.93619
+offset_top = -14.4852
+offset_right = 31.0638
+offset_bottom = 11.5148
 theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
-text = "x 0"
+text = "0"
 
 [node name="GreenGemSprite3" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
 self_modulate = Color(1, 1, 0, 1)
-position = Vector2(163.5, -140)
-scale = Vector2(2.97917, 2.70833)
+position = Vector2(90.8473, -143)
+scale = Vector2(3.07697, 3.22474)
 texture = ExtResource("4_njvkg")
 
 [node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/GreenGemSprite3"]
-offset_left = 24.2
-offset_top = -12.4
-offset_right = 60.2
-offset_bottom = 13.6
+offset_left = -4.86713
+offset_top = -15.5077
+offset_right = 31.1329
+offset_bottom = 10.4923
 theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
-text = "x 0"
+text = "0"
 
 [node name="PurpleGemSprite4" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
 self_modulate = Color(1, 0, 1, 1)
-position = Vector2(441.5, -38)
-scale = Vector2(2.85417, 3.22917)
+position = Vector2(189.847, -71)
+scale = Vector2(3.10519, 3.65769)
 texture = ExtResource("4_njvkg")
 
 [node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/PurpleGemSprite4"]
-offset_left = 24.2
-offset_top = -12.4
-offset_right = 60.2
-offset_bottom = 13.6
+offset_left = -6.48174
+offset_top = -14.5548
+offset_right = 29.5183
+offset_bottom = 11.4452
 theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
-text = "x 0"
+text = "0"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_top = -200
+limit_bottom = 450

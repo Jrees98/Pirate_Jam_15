@@ -7,7 +7,7 @@ var coal_chance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	blue_gem_chance = 10
+	blue_gem_chance = 5
 	coal_chance = 2
 
 

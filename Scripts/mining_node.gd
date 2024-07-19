@@ -8,8 +8,10 @@ var interact_label
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	root = get_tree().root
-	interact_label = root.get_node("Main/Player/RockNodeUI/InteractLabel")
+	root = get_tree().root.get_child(1)
+	print_tree()
+	interact_label = root.get_node("Player/RockNodeUI/InteractLabel")
+	print(root.name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
