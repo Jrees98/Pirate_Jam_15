@@ -47,6 +47,6 @@ func coal_chance():
 		Global.total_coal +=1
 	
 func gem_chance():
-	var number = rng.randi_range(1,Global.gem_chance)
+	var number = rng.randi_range(1,Global.blue_gem_chance)
 	if number == 1:
 		Global.total_gems +=1

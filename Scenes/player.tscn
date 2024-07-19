@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
-[ext_resource type="Texture2D" uid="uid://c0ktx5pt0jw7j" path="res://icon.svg" id="2_cft24"]
+[ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
 [ext_resource type="Texture2D" uid="uid://ca0h5cevk42j2" path="res://Assets/coal.png" id="3_ligsf"]
 [ext_resource type="Texture2D" uid="uid://bv3x5wicyrss5" path="res://Assets/gems.png" id="4_njvkg"]
 [ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="5_nfwr5"]
@@ -15,14 +15,13 @@ collision_mask = 0
 script = ExtResource("1_gr4sc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cft24")
+z_index = 10
+scale = Vector2(2, 2)
+texture = ExtResource("2_yy3j8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fabt6")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="RockNodeUI" type="CanvasLayer" parent="."]
 offset = Vector2(2.08165e-12, 2.08165e-12)
@@ -54,8 +53,8 @@ grow_vertical = 0
 alignment = 2
 
 [node name="CoalSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(118, 126)
-scale = Vector2(4, 4)
+position = Vector2(163.5, -217)
+scale = Vector2(2.625, 2.79167)
 texture = ExtResource("3_ligsf")
 
 [node name="CoalQuantity" type="Label" parent="RockNodeUI/HBoxContainer/CoalSprite"]
@@ -67,12 +66,57 @@ theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
 text = "x 0"
 
-[node name="GemSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(111, -48)
-scale = Vector2(5, 5)
+[node name="BlueGemSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
+position = Vector2(438.5, -135)
+scale = Vector2(3.39583, 3.14583)
 texture = ExtResource("4_njvkg")
 
-[node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/GemSprite"]
+[node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/BlueGemSprite"]
+offset_left = 24.2
+offset_top = -12.4
+offset_right = 60.2
+offset_bottom = 13.6
+theme_override_fonts/font = ExtResource("5_nfwr5")
+theme_override_font_sizes/font_size = 32
+text = "x 0"
+
+[node name="RedGemSprite2" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
+self_modulate = Color(1, 0.0823529, 0, 1)
+position = Vector2(167.5, -46)
+scale = Vector2(2.9375, 3.52083)
+texture = ExtResource("4_njvkg")
+
+[node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/RedGemSprite2"]
+offset_left = 24.2
+offset_top = -12.4
+offset_right = 60.2
+offset_bottom = 13.6
+theme_override_fonts/font = ExtResource("5_nfwr5")
+theme_override_font_sizes/font_size = 32
+text = "x 0"
+
+[node name="GreenGemSprite3" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
+self_modulate = Color(1, 1, 0, 1)
+position = Vector2(163.5, -140)
+scale = Vector2(2.97917, 2.70833)
+texture = ExtResource("4_njvkg")
+
+[node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/GreenGemSprite3"]
+offset_left = 24.2
+offset_top = -12.4
+offset_right = 60.2
+offset_bottom = 13.6
+theme_override_fonts/font = ExtResource("5_nfwr5")
+theme_override_font_sizes/font_size = 32
+text = "x 0"
+
+[node name="PurpleGemSprite4" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(441.5, -38)
+scale = Vector2(2.85417, 3.22917)
+texture = ExtResource("4_njvkg")
+
+[node name="GemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/PurpleGemSprite4"]
 offset_left = 24.2
 offset_top = -12.4
 offset_right = 60.2
