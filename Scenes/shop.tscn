@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ot2mpv1d6pvq"]
+[gd_scene load_steps=9 format=3 uid="uid://ot2mpv1d6pvq"]
 
 [ext_resource type="Texture2D" uid="uid://bdta6gtirqse" path="res://Assets/Shop.png" id="1_72fx0"]
 [ext_resource type="Script" path="res://Scenes/shop.gd" id="1_qoqpp"]
+[ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="3_7fnxc"]
+[ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="4_4b0lm"]
+[ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="5_yl5sc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85vvl"]
 size = Vector2(55, 18)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_876y1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjg30"]
 
 [node name="Shop" type="Area2D"]
 collision_layer = 0
@@ -18,5 +25,49 @@ texture = ExtResource("1_72fx0")
 position = Vector2(23.5, 42)
 shape = SubResource("RectangleShape2D_85vvl")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_876y1")
+
+[node name="Main panel" type="Sprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(1072, 604)
+scale = Vector2(15.9031, 9.85233)
+texture = ExtResource("3_7fnxc")
+
+[node name="Backpack1" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 200.0
+offset_right = 404.0
+offset_bottom = 208.0
+scale = Vector2(24.5939, 23.3238)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/Panel/Backpack1"]
+position = Vector2(3.9034, 4.07309)
+scale = Vector2(0.243963, 0.257248)
+texture = ExtResource("4_4b0lm")
+
+[node name="Border1" type="Sprite2D" parent="CanvasLayer/Panel/Backpack1/ButtonSprite"]
+visible = false
+z_index = 1
+position = Vector2(-0.166665, -1.33333)
+scale = Vector2(1.30958, 1.20171)
+texture = ExtResource("5_yl5sc")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Panel/Backpack1"]
+wait_time = 0.5
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_pressed"]
+[connection signal="timeout" from="CanvasLayer/Panel/Backpack1/Timer" to="." method="_on_timer_timeout"]
