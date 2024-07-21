@@ -3,10 +3,17 @@ extends Area2D
 var backpackI_cost := 50
 var backpackII_cost := 200
 var backpackIII_cost := 500
-
 var backpackIBought : bool
 var backpackIIBought : bool
 var backpackIIIBought : bool
+
+var bootsI_cost := 50
+var bootsII_cost := 200
+var bootsIII_cost := 500
+var bootsIBought : bool
+var bootsIIBought : bool
+var bootsIIIBought : bool
+
 
 func _ready():
 	backpackIBought = false
@@ -34,7 +41,6 @@ func _on_backpack_1_mouse_exited():
 func _on_backpack_1_pressed():
 	if backpackIIBought:
 		if Global.total_coins >= backpackIII_cost:
-			$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack III"
 			Global.total_coins = Global.total_coins - backpackIII_cost
 			$CanvasLayer/Panel/Backpack1.queue_free()
 			Global.personal_inventory_size = 50
@@ -57,5 +63,52 @@ func _on_backpack_1_pressed():
 			$ItemsUI/Panel/PersonalBackpack.show()
 
 ################## BACKPACK BUTTON END ######################
+
+
+################## BOOTS BUTTON START ######################
+func _on_boots_mouse_entered():
+	$CanvasLayer/Panel/Boots/ButtonSprite/Border1.show()
+
+func _on_boots_mouse_exited():
+	$CanvasLayer/Panel/Boots/ButtonSprite/Border1.hide()
+
+func _on_boots_pressed():
+	if bootsIIBought:
+		if Global.total_coins >= bootsIII_cost:
+			Global.move_speed = 1500
+			$CanvasLayer/Panel/Boots.queue_free()
+			Global.total_coins = Global.total_coins - bootsIII_cost
+			$ItemsUI/Panel/Boots/Label.text = "III"
+	elif bootsIBought:
+		if Global.total_coins >= bootsII_cost:
+			Global.move_speed = 800
+			Global.total_coins = Global.total_coins - bootsII_cost
+			$CanvasLayer/Panel/Boots/BootsLabel.text = "Boots III"
+			bootsIIBought = true
+			$CanvasLayer/Panel/Boots/BootsPrice.text = str(bootsIII_cost) + "g"
+			$ItemsUI/Panel/Boots/Label.text = "II"
+	else:
+		if Global.total_coins >= bootsI_cost:
+			Global.move_speed = 500
+			Global.total_coins = Global.total_coins - bootsI_cost
+			$CanvasLayer/Panel/Boots/BootsLabel.text = "Boots II"
+			$CanvasLayer/Panel/Boots/BootsPrice.text = str(bootsII_cost) + "g"
+			bootsIBought = true
+			$ItemsUI/Panel/Boots.show()
+
+################## BOOTS BUTTON END ######################
+
+
+
+
+
+################## PICKAXE BUTTON START ######################
+
+
+################## PICKAXE BUTTON END ######################
+
+
+
+
 
 

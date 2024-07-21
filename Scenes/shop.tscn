@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ot2mpv1d6pvq"]
+[gd_scene load_steps=18 format=3 uid="uid://ot2mpv1d6pvq"]
 
 [ext_resource type="Texture2D" uid="uid://bdta6gtirqse" path="res://Assets/Shop.png" id="1_72fx0"]
 [ext_resource type="Script" path="res://Scenes/shop.gd" id="1_qoqpp"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="5_yl5sc"]
 [ext_resource type="Texture2D" uid="uid://46wyfoxca4u0" path="res://Assets/backpack.png" id="6_ctawk"]
 [ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="7_52eks"]
+[ext_resource type="Texture2D" uid="uid://bi3ea61u3w04i" path="res://Assets/boots.png" id="8_as0hq"]
+[ext_resource type="Texture2D" uid="uid://driu81yb24gq3" path="res://Assets/pickaxe.png" id="9_hfjce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85vvl"]
 size = Vector2(55, 18)
@@ -38,27 +40,31 @@ position = Vector2(23.5, 42)
 shape = SubResource("RectangleShape2D_85vvl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 111.0
+offset_right = 60.0
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_876y1")
 
 [node name="Main panel" type="Sprite2D" parent="CanvasLayer/Panel"]
-position = Vector2(1072, 604)
-scale = Vector2(15.9031, 9.85233)
+position = Vector2(1007.67, 559.956)
+scale = Vector2(17.2432, 10.7699)
 texture = ExtResource("3_7fnxc")
 
 [node name="Backpack1" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 399.0
-offset_top = 203.0
-offset_right = 407.0
-offset_bottom = 211.0
+offset_left = 305.0
+offset_top = 122.0
+offset_right = 313.0
+offset_bottom = 130.0
 scale = Vector2(51.195, 49.7195)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_3bxjm")
@@ -106,6 +112,112 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_52eks")
 text = "50g"
 
+[node name="Boots" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 122.0
+offset_right = 805.0
+offset_bottom = 130.0
+scale = Vector2(51.195, 49.7195)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3bxjm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_67twj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lopv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6345")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/Panel/Boots"]
+position = Vector2(3.9034, 4.07309)
+scale = Vector2(0.243963, 0.257248)
+texture = ExtResource("4_4b0lm")
+
+[node name="Border1" type="Sprite2D" parent="CanvasLayer/Panel/Boots/ButtonSprite"]
+visible = false
+z_index = 1
+position = Vector2(0.500007, -0.166667)
+scale = Vector2(1.596, 1.74374)
+texture = ExtResource("5_yl5sc")
+
+[node name="BackpackSprite" type="Sprite2D" parent="CanvasLayer/Panel/Boots"]
+position = Vector2(4.14103, 3.01692)
+scale = Vector2(0.132733, 0.130656)
+texture = ExtResource("8_as0hq")
+
+[node name="BootsLabel" type="Label" parent="CanvasLayer/Panel/Boots"]
+layout_mode = 0
+offset_left = 0.588321
+offset_top = 0.356833
+offset_right = 72.5883
+offset_bottom = 23.3568
+scale = Vector2(0.0865994, 0.0799078)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+theme_override_font_sizes/font_size = 16
+text = "Boots I"
+
+[node name="BootsPrice" type="Label" parent="CanvasLayer/Panel/Boots"]
+layout_mode = 0
+offset_left = 2.73464
+offset_top = 5.55115
+offset_right = 42.7346
+offset_bottom = 28.5511
+scale = Vector2(0.0896567, 0.137196)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "50g"
+
+[node name="Pickaxe" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1301.0
+offset_top = 122.0
+offset_right = 1309.0
+offset_bottom = 130.0
+scale = Vector2(51.195, 49.7195)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3bxjm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_67twj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lopv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6345")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/Panel/Pickaxe"]
+position = Vector2(3.9034, 4.07309)
+scale = Vector2(0.243963, 0.257248)
+texture = ExtResource("4_4b0lm")
+
+[node name="Border1" type="Sprite2D" parent="CanvasLayer/Panel/Pickaxe/ButtonSprite"]
+visible = false
+z_index = 1
+position = Vector2(0.500007, -0.166667)
+scale = Vector2(1.596, 1.74374)
+texture = ExtResource("5_yl5sc")
+
+[node name="Pickaxe" type="Sprite2D" parent="CanvasLayer/Panel/Pickaxe"]
+position = Vector2(3.69177, 3.17783)
+scale = Vector2(0.132733, 0.130656)
+texture = ExtResource("9_hfjce")
+
+[node name="BackpackLabel" type="Label" parent="CanvasLayer/Panel/Pickaxe"]
+layout_mode = 0
+offset_left = 0.859458
+offset_top = 0.120677
+offset_right = 72.8594
+offset_bottom = 23.1206
+scale = Vector2(0.0865994, 0.0799078)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+theme_override_font_sizes/font_size = 16
+text = "Pickaxe I"
+
+[node name="BackpackPrice" type="Label" parent="CanvasLayer/Panel/Pickaxe"]
+layout_mode = 0
+offset_left = 2.73464
+offset_top = 5.55115
+offset_right = 42.7346
+offset_bottom = 28.5511
+scale = Vector2(0.0896567, 0.137196)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "50g"
+
 [node name="ItemsUI" type="CanvasLayer" parent="."]
 layer = 0
 
@@ -119,7 +231,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mcgod")
 
 [node name="PersonalBackpack" type="Sprite2D" parent="ItemsUI/Panel"]
 visible = false
-position = Vector2(2120, 167)
+position = Vector2(2117, 115)
 scale = Vector2(6, 6)
 texture = ExtResource("6_ctawk")
 
@@ -131,8 +243,25 @@ offset_bottom = 12.6667
 theme_override_fonts/font = ExtResource("7_52eks")
 text = "I"
 
+[node name="Boots" type="Sprite2D" parent="ItemsUI/Panel"]
+visible = false
+position = Vector2(1867, 86)
+scale = Vector2(6, 6)
+texture = ExtResource("8_as0hq")
+
+[node name="Label" type="Label" parent="ItemsUI/Panel/Boots"]
+offset_left = -10.0
+offset_top = 3.83333
+offset_right = 30.0
+offset_bottom = 26.8333
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "I"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Boots" to="." method="_on_boots_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Boots" to="." method="_on_boots_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Boots" to="." method="_on_boots_pressed"]

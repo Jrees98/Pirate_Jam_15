@@ -12,7 +12,6 @@ script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
 position = Vector2(-649, 292)
-speed = 1500
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
