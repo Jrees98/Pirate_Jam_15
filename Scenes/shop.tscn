@@ -38,9 +38,9 @@ position = Vector2(23.5, 42)
 shape = SubResource("RectangleShape2D_85vvl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,8 +79,8 @@ scale = Vector2(1.596, 1.74374)
 texture = ExtResource("5_yl5sc")
 
 [node name="BackpackSprite" type="Sprite2D" parent="CanvasLayer/Panel/Backpack1"]
-position = Vector2(3.86087, 4.08375)
-scale = Vector2(0.15, 0.15)
+position = Vector2(3.86756, 3.64043)
+scale = Vector2(0.132733, 0.130656)
 texture = ExtResource("6_ctawk")
 
 [node name="BackpackLabel" type="Label" parent="CanvasLayer/Panel/Backpack1"]
@@ -94,6 +94,17 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_52eks")
 theme_override_font_sizes/font_size = 16
 text = "Backpack III"
+
+[node name="BackpackPrice" type="Label" parent="CanvasLayer/Panel/Backpack1"]
+layout_mode = 0
+offset_left = 2.73464
+offset_top = 5.55115
+offset_right = 42.7346
+offset_bottom = 28.5511
+scale = Vector2(0.0896567, 0.137196)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "50g"
 
 [node name="ItemsUI" type="CanvasLayer" parent="."]
 layer = 0

@@ -14,7 +14,15 @@ func _ready():
 	backpackIIIBought = false
 	$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack I"
 	
+func _on_body_entered(body):
+	$CanvasLayer.show()
 
+
+func _on_body_exited(body):
+	$CanvasLayer.hide()
+
+
+################## BACKPACK BUTTON START######################
 func _on_backpack_1_mouse_entered():
 	$CanvasLayer/Panel/Backpack1/ButtonSprite/Border1.show()
 
@@ -37,21 +45,17 @@ func _on_backpack_1_pressed():
 			Global.personal_inventory_size = 30
 			Global.total_coins = Global.total_coins - backpackII_cost
 			backpackIIBought = true
+			$CanvasLayer/Panel/Backpack1/BackpackPrice.text = str(backpackIII_cost) + "g"
 			$ItemsUI/Panel/PersonalBackpack/Label.text = "II"
-
 	else:
 		if Global.total_coins >= backpackI_cost:
 			$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack II"
 			Global.personal_inventory_size = 10
 			Global.total_coins = Global.total_coins - backpackI_cost
 			backpackIBought = true
+			$CanvasLayer/Panel/Backpack1/BackpackPrice.text = str(backpackII_cost) + "g"
 			$ItemsUI/Panel/PersonalBackpack.show()
 
+################## BACKPACK BUTTON END ######################
 
 
-func _on_body_entered(body):
-	$CanvasLayer.show()
-
-
-func _on_body_exited(body):
-	$CanvasLayer.hide()
