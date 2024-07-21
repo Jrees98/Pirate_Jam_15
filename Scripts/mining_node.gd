@@ -11,12 +11,13 @@ func _ready():
 	root = get_tree().root.get_child(1)
 	print_tree()
 	interact_label = root.get_node("Player/RockNodeUI/InteractLabel")
-	print(root.name)
+	$MiningCoolDown.wait_time = Global.mine_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if can_mine and Input.is_action_pressed("interact"):
 		mine()
+	$MiningCoolDown.wait_time = Global.mine_time
 
 # Called when the body enters the area
 func _on_area_2d_body_entered(body):

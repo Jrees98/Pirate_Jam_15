@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=8 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://deriguf4uwt0b" path="res://Scenes/tile_map.tscn" id="4_qtfcr"]
 [ext_resource type="PackedScene" uid="uid://mgsbjpqmcp7e" path="res://Scenes/wagon.tscn" id="5_xqjqi"]
 [ext_resource type="PackedScene" uid="uid://ot2mpv1d6pvq" path="res://Scenes/shop.tscn" id="6_tlerc"]
+[ext_resource type="PackedScene" uid="uid://cn65df43la0dm" path="res://Scenes/alchemist.tscn" id="7_r5ovd"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_q3ypa")
@@ -23,6 +24,10 @@ position = Vector2(-1188, 322)
 
 [node name="Shop" parent="." instance=ExtResource("6_tlerc")]
 position = Vector2(-1845, 103)
+scale = Vector2(5, 5)
+
+[node name="Alchemist" parent="." instance=ExtResource("7_r5ovd")]
+position = Vector2(-3258, 208)
 scale = Vector2(5, 5)
 
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]

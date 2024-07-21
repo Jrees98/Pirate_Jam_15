@@ -14,6 +14,11 @@ var bootsIBought : bool
 var bootsIIBought : bool
 var bootsIIIBought : bool
 
+var pickaxeI_cost := 100
+var pickaxeII_cost := 500
+var pickaxeIII_cost := 1000
+var pickaxeIBought : bool
+var pickaxeIIBought : bool
 
 func _ready():
 	backpackIBought = false
@@ -99,13 +104,42 @@ func _on_boots_pressed():
 ################## BOOTS BUTTON END ######################
 
 
-
-
-
 ################## PICKAXE BUTTON START ######################
+func _on_pickaxe_mouse_entered():
+	$CanvasLayer/Panel/Pickaxe/ButtonSprite/Border1.show()
+func _on_pickaxe_mouse_exited():
+	$CanvasLayer/Panel/Pickaxe/ButtonSprite/Border1.hide()
+func _on_pickaxe_pressed():
+	if pickaxeIIBought:
+		if Global.total_coins >= pickaxeIII_cost:
+			Global.total_coins = Global.total_coins - pickaxeIII_cost
+			$CanvasLayer/Panel/Pickaxe.queue_free()
+			$ItemsUI/Panel/Pickaxe/Label.text = "III"
+			Global.mine_time = 0.1
+	elif pickaxeIBought:
+		if Global.total_coins >= pickaxeII_cost:
+			Global.total_coins = Global.total_coins - pickaxeII_cost
+			$ItemsUI/Panel/Pickaxe/Label.text = "II"
+			$CanvasLayer/Panel/Pickaxe/PickaxeLabel.text = "Pickaxe III"
+			pickaxeIIBought = true
+			Global.mine_time = 0.25
+			$CanvasLayer/Panel/Pickaxe/PickaxePrice.text = str(pickaxeIII_cost) + "g"
+	else:
+		if Global.total_coins >= pickaxeI_cost:
+			Global.total_coins = Global.total_coins - pickaxeI_cost
+			$ItemsUI/Panel/Pickaxe.show()
+			Global.mine_time = 0.5
+			$CanvasLayer/Panel/Pickaxe/PickaxeLabel.text = "Pickaxe II"
+			$CanvasLayer/Panel/Pickaxe/PickaxePrice.text = str(pickaxeII_cost) + "g"
+			pickaxeIBought = true
+
+
 
 
 ################## PICKAXE BUTTON END ######################
+
+
+
 
 
 
