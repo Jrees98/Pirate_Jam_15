@@ -53,7 +53,7 @@ grow_vertical = 0
 alignment = 2
 
 [node name="CoalSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(145.847, -210)
+position = Vector2(146.057, -89.5502)
 scale = Vector2(4.03598, 4.93541)
 texture = ExtResource("3_ligsf")
 
@@ -67,7 +67,7 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="BlueGemSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(135, -76)
+position = Vector2(135.21, 44.4498)
 scale = Vector2(4.63375, 4.68641)
 texture = ExtResource("4_njvkg")
 

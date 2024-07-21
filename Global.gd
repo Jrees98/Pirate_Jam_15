@@ -19,6 +19,8 @@ func _ready():
 	gem_price = 5
 	coal_price = 2
 	
+	total_coins = 1000
+	
 	personal_inventory_size = 0
 
 
