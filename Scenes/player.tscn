@@ -76,10 +76,11 @@ collision_mask = 8
 script = ExtResource("1_gr4sc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 3
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lmb3k")
 autoplay = "default"
-frame_progress = 0.102949
+frame_progress = 0.447369
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
@@ -143,9 +144,8 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="RedGemSprite2" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-visible = false
 self_modulate = Color(1, 0.0823529, 0, 1)
-position = Vector2(90.8473, -71)
+position = Vector2(292, 9)
 scale = Vector2(2.9375, 3.52083)
 texture = ExtResource("4_njvkg")
 
@@ -159,9 +159,8 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="GreenGemSprite3" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-visible = false
 self_modulate = Color(1, 1, 0, 1)
-position = Vector2(90.8473, -143)
+position = Vector2(294, -108)
 scale = Vector2(3.07697, 3.22474)
 texture = ExtResource("4_njvkg")
 
@@ -175,9 +174,8 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="PurpleGemSprite4" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-visible = false
 self_modulate = Color(1, 0, 1, 1)
-position = Vector2(189.847, -71)
+position = Vector2(291, 109)
 scale = Vector2(3.10519, 3.65769)
 texture = ExtResource("4_njvkg")
 

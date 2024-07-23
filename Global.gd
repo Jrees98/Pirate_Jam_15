@@ -2,6 +2,9 @@ extends Node
 var total_coal : int
 var total_gems : int
 var total_coins : int
+var total_greengem : int
+var total_purplegem : int
+var total_redgem : int
 
 var blue_gem_chance
 var coal_chance

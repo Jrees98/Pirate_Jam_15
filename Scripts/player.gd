@@ -19,7 +19,6 @@ func _physics_process(delta):
 		velocity.x = 0
 		$AnimatedSprite2D.play("default")
 	move_and_slide()
-	print(direction)
 	
 	if direction > 0:
 		$AnimatedSprite2D.play("walk")
@@ -28,9 +27,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = true
 	
 	if Input.is_action_pressed("minecart"):
-		if in_minecart == false:
-			$AnimatedSprite2D.play("minecart")
-			in_minecart = true
+		$AnimatedSprite2D.play("minecart")
+		in_minecart = true
+		Global.move_speed = 5000
 	
 
 	
@@ -38,7 +37,9 @@ func _physics_process(delta):
 	$RockNodeUI/HBoxContainer/CoalSprite/CoalQuantity.text = str(Global.total_coal)
 	$RockNodeUI/HBoxContainer/BlueGemSprite/GemQuantity.text = str(Global.total_gems)
 	$RockNodeUI/Coins.text = "$ " + str(Global.total_coins)
-	
+	$RockNodeUI/HBoxContainer/RedGemSprite2/GemQuantity.text = str(Global.total_redgem)
+	$RockNodeUI/HBoxContainer/GreenGemSprite3/GemQuantity.text = str(Global.total_greengem)
+	$RockNodeUI/HBoxContainer/PurpleGemSprite4/GemQuantity.text = str(Global.total_purplegem)
 	speed = Global.move_speed
 	
 	
