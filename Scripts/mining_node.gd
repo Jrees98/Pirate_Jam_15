@@ -52,8 +52,11 @@ func coal_chance():
 func gem_chance():
 	var number = rng.randi_range(1,Global.blue_gem_chance)
 	var greenNumber = rng.randi_range(1, 10)
-	var purpleNumber = rng.randi_range(1,20)
-	var redNumber = rng.randi_range(1,50)
+	var purpleNumber = rng.randi_range(1,50)
+	var redNumber = rng.randi_range(1,20)
+	var whiteNumber = rng.randi_range(1,100)
+	
+	
 	if number == 1:
 		Global.total_gems +=1
 	if greenNumber == 1:
@@ -62,3 +65,5 @@ func gem_chance():
 		Global.total_purplegem += 1
 	if redNumber == 1:
 		Global.total_redgem += 1
+	if whiteNumber == 1:
+		Global.total_whitegem += 1

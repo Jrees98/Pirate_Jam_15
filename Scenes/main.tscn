@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cn65df43la0dm" path="res://Scenes/alchemist.tscn" id="7_r5ovd"]
 
 [node name="Main" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]

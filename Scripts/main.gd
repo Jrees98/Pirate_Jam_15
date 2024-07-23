@@ -14,7 +14,5 @@ func _process(delta):
 
 
 func _on_wagon_wagon_entered():
-	Global.total_coins = Global.total_coins + (Global.total_coal * Global.coal_price) + (Global.total_gems * Global.gem_price)
-	
+	Global.total_coins = Global.total_coins + (Global.total_coal * Global.coal_price)
 	Global.total_coal = 0
-	Global.total_gems = 0

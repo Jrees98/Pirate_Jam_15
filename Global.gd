@@ -5,6 +5,7 @@ var total_coins : int
 var total_greengem : int
 var total_purplegem : int
 var total_redgem : int
+var total_whitegem : int
 
 var blue_gem_chance
 var coal_chance

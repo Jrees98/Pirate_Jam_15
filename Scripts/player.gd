@@ -11,21 +11,32 @@ func _ready():
 	
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left","move_right")
-	if direction:
-		velocity.x = speed * direction
-		$AnimatedSprite2D.play("walk")
+	if in_minecart == false:
+		if direction:
+			velocity.x = speed * direction
+			$AnimatedSprite2D.play("walk")
 
-	else:
-		velocity.x = 0
-		$AnimatedSprite2D.play("default")
-	move_and_slide()
-	
-	if direction > 0:
-		$AnimatedSprite2D.play("walk")
-		$AnimatedSprite2D.flip_h = false
-	if direction < 0:
-		$AnimatedSprite2D.flip_h = true
-	
+		else:
+			velocity.x = 0
+			$AnimatedSprite2D.play("default")
+		move_and_slide()
+		
+		if direction > 0:
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = false
+		if direction < 0:
+			$AnimatedSprite2D.flip_h = true
+	if in_minecart:
+		if direction:
+			velocity.x = speed * direction
+		else:
+			velocity.x = 0
+		move_and_slide()
+		
+		if direction > 0:
+			$AnimatedSprite2D.flip_h = false
+		if direction < 0:
+			$AnimatedSprite2D.flip_h = true
 	if Input.is_action_pressed("minecart"):
 		$AnimatedSprite2D.play("minecart")
 		in_minecart = true
@@ -40,6 +51,7 @@ func _physics_process(delta):
 	$RockNodeUI/HBoxContainer/RedGemSprite2/GemQuantity.text = str(Global.total_redgem)
 	$RockNodeUI/HBoxContainer/GreenGemSprite3/GemQuantity.text = str(Global.total_greengem)
 	$RockNodeUI/HBoxContainer/PurpleGemSprite4/GemQuantity.text = str(Global.total_purplegem)
+	$RockNodeUI/HBoxContainer/WhiteGemSprite5/GemQuantity.text = str(Global.total_whitegem)
 	speed = Global.move_speed
 	
 	
