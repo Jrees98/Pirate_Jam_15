@@ -2,4 +2,9 @@ extends Area2D
 
 
 func _on_body_entered(body):
-	print("hello")
+	$CanvasLayer.show()
+
+
+
+func _on_body_exited(body):
+	$CanvasLayer.hide()

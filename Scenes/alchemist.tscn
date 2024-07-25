@@ -60,14 +60,13 @@ script = ExtResource("1_b7g03")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_506gj")
 autoplay = "default"
-frame_progress = 0.802142
+frame_progress = 0.908151
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 33)
 shape = SubResource("RectangleShape2D_ykcnq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -83,3 +82,4 @@ scale = Vector2(18.5052, 11.1875)
 texture = ExtResource("2_ytyaj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
