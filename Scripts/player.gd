@@ -57,11 +57,9 @@ func _physics_process(delta):
 	
 	
 
-
-
 func _on_regain_energy_timeout():
-	$RockNodeUI/ProgressBar.value += 10
+	$RockNodeUI/SanityBar.value += 10
 
 
 func _on_lose_energy_timeout():
-	$RockNodeUI/ProgressBar.value -= 10
+	$RockNodeUI/SanityBar.value -= 10

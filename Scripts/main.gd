@@ -35,11 +35,11 @@ func end_game():
 
 
 func _on_mining_area_body_entered(body):
-	$Player/RockNodeUI/ProgressBar/LoseEnergy.start()
-	$Player/RockNodeUI/ProgressBar/RegainEnergy.stop()
+	$Player/RockNodeUI/SanityBar/LoseEnergy.start()
+	$Player/RockNodeUI/SanityBar/RegainEnergy.stop()
 
 
 
 func _on_mining_area_body_exited(body):
-	$Player/RockNodeUI/ProgressBar/LoseEnergy.stop()
-	$Player/RockNodeUI/ProgressBar/RegainEnergy.start()
+	$Player/RockNodeUI/SanityBar/LoseEnergy.stop()
+	$Player/RockNodeUI/SanityBar/RegainEnergy.start()

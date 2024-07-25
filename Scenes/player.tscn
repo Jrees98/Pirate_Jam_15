@@ -75,7 +75,7 @@ animations = [{
 size = Vector2(71, 119)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al6ms"]
-bg_color = Color(0.380392, 0.694118, 0, 1)
+bg_color = Color(0.560784, 0, 0.768627, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -217,26 +217,26 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("5_nfwr5")
 text = "Coins: "
 
-[node name="ProgressBar" type="ProgressBar" parent="RockNodeUI"]
-offset_left = 2201.0
-offset_top = 974.0
-offset_right = 2205.0
-offset_bottom = 1001.0
-scale = Vector2(5.60836, 9.80262)
+[node name="SanityBar" type="ProgressBar" parent="RockNodeUI"]
+offset_left = 2226.0
+offset_top = 978.0
+offset_right = 2230.0
+offset_bottom = 1005.0
+scale = Vector2(7.29923, 9.96171)
 theme_override_styles/fill = SubResource("StyleBoxFlat_al6ms")
-value = 100.0
+value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="RegainEnergy" type="Timer" parent="RockNodeUI/ProgressBar"]
+[node name="RegainEnergy" type="Timer" parent="RockNodeUI/SanityBar"]
 wait_time = 0.1
 
-[node name="LoseEnergy" type="Timer" parent="RockNodeUI/ProgressBar"]
+[node name="LoseEnergy" type="Timer" parent="RockNodeUI/SanityBar"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 limit_top = -200
 limit_bottom = 450
 
-[connection signal="timeout" from="RockNodeUI/ProgressBar/RegainEnergy" to="." method="_on_regain_energy_timeout"]
-[connection signal="timeout" from="RockNodeUI/ProgressBar/LoseEnergy" to="." method="_on_lose_energy_timeout"]
+[connection signal="timeout" from="RockNodeUI/SanityBar/RegainEnergy" to="." method="_on_regain_energy_timeout"]
+[connection signal="timeout" from="RockNodeUI/SanityBar/LoseEnergy" to="." method="_on_lose_energy_timeout"]
