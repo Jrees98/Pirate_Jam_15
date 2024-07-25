@@ -40,7 +40,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("minecart"):
 		$AnimatedSprite2D.play("minecart")
 		in_minecart = true
-		Global.move_speed = 5000
+		Global.move_speed = 3000
 	
 
 	

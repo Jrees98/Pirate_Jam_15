@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$House/VBoxContainer/DadsHealthBar.value = 100
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,3 +16,16 @@ func _process(delta):
 func _on_wagon_wagon_entered():
 	Global.total_coins = Global.total_coins + (Global.total_coal * Global.coal_price)
 	Global.total_coal = 0
+
+func decrease_dad_health():
+	$House/VBoxContainer/DadsHealthBar.value -= 10
+
+func _on_timer_timeout():
+	if $House/VBoxContainer/DadsHealthBar.value > 0:
+		decrease_dad_health()
+	else:
+		end_game()
+		$House/Timer.stop()
+
+func end_game():
+	print("Game Over")

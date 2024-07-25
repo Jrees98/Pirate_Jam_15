@@ -1,15 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=12 format=3 uid="uid://cn65df43la0dm"]
 
-[ext_resource type="Texture2D" uid="uid://de0s675bspt0m" path="res://Assets/Untitled 13.png" id="1_4rokn"]
+[ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
+[ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
+[ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_ytyaj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckxys"]
-height = 60.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
+atlas = ExtResource("1_17htp")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72qi6"]
+atlas = ExtResource("1_17htp")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdf3u"]
+atlas = ExtResource("1_17htp")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7137j"]
+atlas = ExtResource("1_17htp")
+region = Rect2(480, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6851"]
+atlas = ExtResource("1_17htp")
+region = Rect2(640, 0, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_506gj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qv2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72qi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdf3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7137j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6851")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykcnq"]
+size = Vector2(57.5, 42)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y23b2"]
 
 [node name="Alchemist" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_b7g03")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4rokn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_506gj")
+autoplay = "default"
+frame_progress = 0.802142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
-shape = SubResource("CapsuleShape2D_ckxys")
+position = Vector2(-5, 33)
+shape = SubResource("RectangleShape2D_ykcnq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y23b2")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(1139, 621)
+scale = Vector2(18.5052, 11.1875)
+texture = ExtResource("2_ytyaj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

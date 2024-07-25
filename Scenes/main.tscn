@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=11 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -7,13 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://mgsbjpqmcp7e" path="res://Scenes/wagon.tscn" id="5_xqjqi"]
 [ext_resource type="PackedScene" uid="uid://ot2mpv1d6pvq" path="res://Scenes/shop.tscn" id="6_tlerc"]
 [ext_resource type="PackedScene" uid="uid://cn65df43la0dm" path="res://Scenes/alchemist.tscn" id="7_r5ovd"]
+[ext_resource type="Texture2D" uid="uid://d0g2af01u8a53" path="res://Assets/Untitled 17.png" id="8_mj3ho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0lol"]
+bg_color = Color(0.964706, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjx02"]
+bg_color = Color(0.411765, 0.772549, 0, 1)
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-649, 292)
+position = Vector2(-5755, 288)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
@@ -28,8 +35,32 @@ position = Vector2(-1845, 103)
 scale = Vector2(5, 5)
 
 [node name="Alchemist" parent="." instance=ExtResource("7_r5ovd")]
-position = Vector2(-3258, 208)
-scale = Vector2(5, 5)
+position = Vector2(-5194, 199)
+scale = Vector2(3, 3)
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(-5624, 90)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("8_mj3ho")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="House"]
+offset_left = -8.88889
+offset_top = 21.3333
+offset_right = 31.1111
+offset_bottom = 61.3333
+scale = Vector2(1.01964, 0.150207)
+
+[node name="DadsHealthBar" type="ProgressBar" parent="House/VBoxContainer"]
+custom_minimum_size = Vector2(15, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_b0lol")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kjx02")
+value = 50.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="House"]
+autostart = true
 
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
 [connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
+[connection signal="timeout" from="House/Timer" to="." method="_on_timer_timeout"]

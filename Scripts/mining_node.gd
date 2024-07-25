@@ -9,7 +9,6 @@ var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	root = get_tree().root.get_child(1)
-	print_tree()
 	interact_label = root.get_node("Player/RockNodeUI/InteractLabel")
 	$MiningCoolDown.wait_time = Global.mine_time
 
@@ -51,10 +50,10 @@ func coal_chance():
 	
 func gem_chance():
 	var number = rng.randi_range(1,Global.blue_gem_chance)
-	var greenNumber = rng.randi_range(1, 10)
-	var purpleNumber = rng.randi_range(1,50)
-	var redNumber = rng.randi_range(1,20)
-	var whiteNumber = rng.randi_range(1,100)
+	var greenNumber = rng.randi_range(1, 50)
+	var purpleNumber = rng.randi_range(1,100)
+	var redNumber = rng.randi_range(1,200)
+	var whiteNumber = rng.randi_range(1,500)
 	
 	
 	if number == 1:

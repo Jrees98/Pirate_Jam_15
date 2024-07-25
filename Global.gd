@@ -18,13 +18,13 @@ var move_speed : int
 var mine_time : float
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	blue_gem_chance = 5
+	blue_gem_chance = 20
 	coal_chance = 1
 	
 	gem_price = 5
 	coal_price = 2
 	
-	total_coins = 10000
+	total_coins = 0
 	
 	personal_inventory_size = 0
 	move_speed = 300
