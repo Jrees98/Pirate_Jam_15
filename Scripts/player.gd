@@ -42,6 +42,7 @@ func _physics_process(delta):
 		in_minecart = true
 		Global.move_speed = 3000
 	
+	
 
 	
 	#update UI counts
@@ -55,3 +56,12 @@ func _physics_process(delta):
 	speed = Global.move_speed
 	
 	
+
+
+
+func _on_regain_energy_timeout():
+	$RockNodeUI/ProgressBar.value += 10
+
+
+func _on_lose_energy_timeout():
+	$RockNodeUI/ProgressBar.value -= 10

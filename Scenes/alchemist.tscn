@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=14 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
 [ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
 [ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_ytyaj"]
+[ext_resource type="Texture2D" uid="uid://b157jm05irlvi" path="res://Assets/Untitled 14.png" id="4_mrn3j"]
+[ext_resource type="Texture2D" uid="uid://dxw4ehiic2cl7" path="res://Assets/arrow.png" id="5_e0dga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
 atlas = ExtResource("1_17htp")
@@ -67,6 +69,7 @@ position = Vector2(-5, 33)
 shape = SubResource("RectangleShape2D_ykcnq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -80,6 +83,23 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_y23b2")
 position = Vector2(1139, 621)
 scale = Vector2(18.5052, 11.1875)
 texture = ExtResource("2_ytyaj")
+
+[node name="Green_Gem" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
+position = Vector2(-30.64, -24.7598)
+scale = Vector2(0.521953, 0.639665)
+texture = ExtResource("4_mrn3j")
+
+[node name="Arrow_Down" type="Sprite2D" parent="CanvasLayer/Panel/Background/Green_Gem"]
+position = Vector2(-0.207064, 21.3799)
+rotation = 3.14159
+scale = Vector2(0.463258, 0.468536)
+texture = ExtResource("5_e0dga")
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Green_Gem/Arrow_Down"]
+offset_left = -4.91671
+offset_top = -11.035
+offset_right = 4.08329
+offset_bottom = 11.965
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

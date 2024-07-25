@@ -29,3 +29,17 @@ func _on_timer_timeout():
 
 func end_game():
 	print("Game Over")
+	
+
+
+
+
+func _on_mining_area_body_entered(body):
+	$Player/RockNodeUI/ProgressBar/LoseEnergy.start()
+	$Player/RockNodeUI/ProgressBar/RegainEnergy.stop()
+
+
+
+func _on_mining_area_body_exited(body):
+	$Player/RockNodeUI/ProgressBar/LoseEnergy.stop()
+	$Player/RockNodeUI/ProgressBar/RegainEnergy.start()

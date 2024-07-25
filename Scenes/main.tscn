@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=12 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -15,12 +15,15 @@ bg_color = Color(0.964706, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjx02"]
 bg_color = Color(0.411765, 0.772549, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drd1y"]
+size = Vector2(2691.5, 393.5)
+
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-5755, 288)
+position = Vector2(-1429, 289)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
@@ -36,7 +39,7 @@ scale = Vector2(5, 5)
 
 [node name="Alchemist" parent="." instance=ExtResource("7_r5ovd")]
 position = Vector2(-5194, 199)
-scale = Vector2(3, 3)
+scale = Vector2(2.99913, 3)
 
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(-5624, 90)
@@ -61,6 +64,16 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="House"]
 autostart = true
 
+[node name="MiningArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiningArea"]
+position = Vector2(485.25, 160.25)
+shape = SubResource("RectangleShape2D_drd1y")
+
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
 [connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
 [connection signal="timeout" from="House/Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="MiningArea" to="." method="_on_mining_area_body_entered"]
+[connection signal="body_exited" from="MiningArea" to="." method="_on_mining_area_body_exited"]
