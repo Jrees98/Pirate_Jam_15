@@ -1,10 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=49 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
 [ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
 [ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_ytyaj"]
 [ext_resource type="Texture2D" uid="uid://b157jm05irlvi" path="res://Assets/Untitled 14.png" id="4_mrn3j"]
-[ext_resource type="Texture2D" uid="uid://dxw4ehiic2cl7" path="res://Assets/arrow.png" id="5_e0dga"]
+[ext_resource type="Texture2D" uid="uid://bv3x5wicyrss5" path="res://Assets/gems.png" id="4_ojbbq"]
+[ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="6_0huyd"]
+[ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="7_kwlbv"]
+[ext_resource type="Texture2D" uid="uid://pdom4vs0mqf6" path="res://Assets/Untitled 20.png" id="8_jcdsr"]
+[ext_resource type="Texture2D" uid="uid://bfpoipcw1glka" path="res://Assets/Untitled 15.png" id="9_xaolf"]
+[ext_resource type="Texture2D" uid="uid://s4ufnhdi0b5q" path="res://Assets/Untitled 19.png" id="10_pi2m2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
 atlas = ExtResource("1_17htp")
@@ -54,6 +59,66 @@ size = Vector2(57.5, 42)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y23b2"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkopc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ehdw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3abr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ymjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_553t6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7j0w5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ow5lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prdcq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g88vb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5npe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krloh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgmhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iak02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5vfw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esc2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph48b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5dmg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdtms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wvsg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r65lc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mygb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jd0bn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wql6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xequk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbab3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kv0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wl6xm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ijdr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y56bu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7s6ip"]
+
 [node name="Alchemist" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -69,7 +134,6 @@ position = Vector2(-5, 33)
 shape = SubResource("RectangleShape2D_ykcnq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -84,22 +148,131 @@ position = Vector2(1139, 621)
 scale = Vector2(18.5052, 11.1875)
 texture = ExtResource("2_ytyaj")
 
-[node name="Green_Gem" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
-position = Vector2(-30.64, -24.7598)
-scale = Vector2(0.521953, 0.639665)
+[node name="Combine" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
+position = Vector2(-0.594428, 36.9162)
+scale = Vector2(0.931331, 0.499087)
+texture = ExtResource("6_0huyd")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Background/Combine"]
+offset_left = -13.6935
+offset_top = -11.9996
+offset_right = 28.3065
+offset_bottom = 11.0004
+scale = Vector2(0.657455, 1.40859)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "Combine"
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Combine"]
+offset_left = -15.0
+offset_top = -14.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nkopc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2ehdw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q3abr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ymjx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_553t6")
+
+[node name="Slots" type="Node" parent="CanvasLayer/Panel/Background"]
+
+[node name="Slot1" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
+position = Vector2(768.896, 732.875)
+scale = Vector2(9.71875, 7.9375)
+texture = ExtResource("6_0huyd")
+
+[node name="Slot2" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
+position = Vector2(1139, 732.875)
+scale = Vector2(9.71875, 7.9375)
+texture = ExtResource("6_0huyd")
+
+[node name="Slot3" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
+position = Vector2(1509.1, 732.875)
+scale = Vector2(9.71875, 7.9375)
+texture = ExtResource("6_0huyd")
+
+[node name="Gems" type="Node" parent="CanvasLayer/Panel/Background"]
+
+[node name="Diamond" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
+position = Vector2(575, 340)
+scale = Vector2(8, 8.018)
+texture = ExtResource("4_ojbbq")
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Diamond"]
+offset_left = -9.5
+offset_top = -9.35395
+offset_right = -1.5
+offset_bottom = -1.35395
+scale = Vector2(2.579, 2.47227)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7j0w5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ow5lr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_prdcq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g88vb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w5npe")
+
+[node name="Emerald" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
+position = Vector2(865, 350)
+scale = Vector2(8, 8.018)
 texture = ExtResource("4_mrn3j")
 
-[node name="Arrow_Down" type="Sprite2D" parent="CanvasLayer/Panel/Background/Green_Gem"]
-position = Vector2(-0.207064, 21.3799)
-rotation = 3.14159
-scale = Vector2(0.463258, 0.468536)
-texture = ExtResource("5_e0dga")
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Emerald"]
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = 10.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krloh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wgmhx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iak02")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h5vfw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_esc2x")
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Green_Gem/Arrow_Down"]
-offset_left = -4.91671
-offset_top = -11.035
-offset_right = 4.08329
-offset_bottom = 11.965
+[node name="Sapphire" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
+position = Vector2(1150, 340)
+scale = Vector2(7.03976, 7.05642)
+texture = ExtResource("8_jcdsr")
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Sapphire"]
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ph48b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s5dmg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gdtms")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2wvsg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r65lc")
+
+[node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
+position = Vector2(1400, 340)
+scale = Vector2(7.03976, 7.05642)
+texture = ExtResource("9_xaolf")
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Ruby"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 11.0
+offset_bottom = 10.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8mygb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jd0bn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wql6t")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xequk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hbab3")
+
+[node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
+position = Vector2(1700, 340)
+scale = Vector2(7.03976, 7.05642)
+texture = ExtResource("10_pi2m2")
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Amethyst"]
+offset_left = -10.0
+offset_top = -9.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7kv0l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wl6xm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7ijdr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y56bu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7s6ip")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
