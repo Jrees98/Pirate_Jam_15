@@ -10,11 +10,16 @@ var slot_2_gem : String
 var slot_3_gem : String
 var combination : String
 
+var total_health_potions : int
+var total_mining_potions : int
+var total_luck_potions : int
+var total_fear_potions : int
+
 var potion_recipes = {
-	"Strength Potion": "Diamond Emerald Ruby",
+	"Health Potion": "Diamond Emerald Ruby",
 	"Mining Potion": "Diamond Ruby Sapphire",
 	"Luck Potion": "Amethyst Diamond Ruby",
-	"Insanity Potion": "Emerald Ruby Sapphire"
+	"Fear Potion": "Emerald Ruby Sapphire"
 }
 
 
@@ -220,8 +225,9 @@ func _on_reset_button_pressed():
 	reload_table()
 
 
-
+### cOMBINE BUTTON ###
 func _on_combine_button_pressed():
+	var potion := ""
 	combination = slot_1_gem + " " + slot_2_gem + " " + slot_3_gem
 	var gems_array = combination.split(" ")
 	gems_array.sort()
@@ -242,20 +248,25 @@ func _on_combine_button_pressed():
 	
 	var sorted_gems = str(" ").join(sorted_gems_array)
 	
-	print(sorted_gems)
-	print(potion_recipes["Strength Potion"])
 	for key in potion_recipes.keys():
 		if potion_recipes[key] == sorted_gems:
-			print(key)
-		
+			potion = key
+			print(potion)
+			if potion == "Health Potion":
+				total_health_potions += 1
+				$PotionsUI/HealthPotion/HealthPotionQuantity.text = str(total_health_potions)
+			elif potion == "Mining Potion":
+				total_mining_potions += 1
+				$PotionsUI/MiningPotion/MiningPotionQuantity.text = str(total_mining_potions)
+			elif potion == "Luck Potion":
+				total_luck_potions += 1
+				$PotionsUI/LuckPotion/LuckPotionQuantity.text = str(total_luck_potions)
+			elif potion == "Fear Potion":
+				total_fear_potions += 1
+				$PotionsUI/FearPotion/FearPotionQuantity.text = str(total_fear_potions)
+				
+			
 	reload_table()
-	print(sorted_gems_array)
-	
-	var diamond = Global.total_gems
-	var emerald = Global.total_greengem
-	var ruby = Global.total_redgem
-	var amethyst = Global.total_purplegem
-	var sapphire = Global.total_whitegem
 
 
 
