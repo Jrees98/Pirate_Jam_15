@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ot2mpv1d6pvq"]
+[gd_scene load_steps=23 format=3 uid="uid://ot2mpv1d6pvq"]
 
 [ext_resource type="Texture2D" uid="uid://bdta6gtirqse" path="res://Assets/Shop.png" id="1_72fx0"]
 [ext_resource type="Script" path="res://Scenes/shop.gd" id="1_qoqpp"]
@@ -30,6 +30,12 @@ size = Vector2(55, 18)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcgod"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fylq2"]
+bg_color = Color(0.964706, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mr2t"]
+bg_color = Color(0.411765, 0.772549, 0, 1)
+
 [node name="Shop" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -43,6 +49,7 @@ position = Vector2(23.5, 42)
 shape = SubResource("RectangleShape2D_85vvl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -434,6 +441,31 @@ offset_bottom = 26.8333
 theme_override_fonts/font = ExtResource("7_52eks")
 text = "I"
 
+[node name="ProgressBar" type="ProgressBar" parent="ItemsUI"]
+visible = false
+offset_left = 1171.0
+offset_top = 105.0
+offset_right = 1175.0
+offset_bottom = 132.0
+rotation = 1.5708
+scale = Vector2(10, 10)
+theme_override_styles/background = SubResource("StyleBoxFlat_fylq2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3mr2t")
+fill_mode = 3
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="ItemsUI/ProgressBar"]
+
+[node name="Dadsbar" type="Label" parent="ItemsUI"]
+visible = false
+offset_left = 927.0
+offset_top = 43.0
+offset_right = 1023.0
+offset_bottom = 66.0
+scale = Vector2(2.33594, 4.97126)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "Dad's Health bar"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Backpack1" to="." method="_on_backpack_1_mouse_entered"]
@@ -454,3 +486,4 @@ text = "I"
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Mirror" to="." method="_on_mirror_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Panel/Mirror" to="." method="_on_mirror_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Mirror" to="." method="_on_mirror_pressed"]
+[connection signal="timeout" from="ItemsUI/ProgressBar/Timer" to="." method="_on_timer_timeout"]

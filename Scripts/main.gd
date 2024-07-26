@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	Global.dads_health = $House/VBoxContainer/DadsHealthBar.value
 
 
 
@@ -43,3 +43,8 @@ func _on_mining_area_body_entered(body):
 func _on_mining_area_body_exited(body):
 	$Player/RockNodeUI/SanityBar/LoseEnergy.stop()
 	$Player/RockNodeUI/SanityBar/RegainEnergy.start()
+
+
+func _on_shop_stop_timer_dad():
+	$House/Timer.stop()
+	$House/Timer.start()

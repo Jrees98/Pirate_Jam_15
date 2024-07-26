@@ -23,7 +23,7 @@ position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-1429, 289)
+position = Vector2(-2163, 287)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
@@ -74,6 +74,7 @@ shape = SubResource("RectangleShape2D_drd1y")
 
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
 [connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
+[connection signal="stop_timer_dad" from="Shop" to="." method="_on_shop_stop_timer_dad"]
 [connection signal="timeout" from="House/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="MiningArea" to="." method="_on_mining_area_body_entered"]
 [connection signal="body_exited" from="MiningArea" to="." method="_on_mining_area_body_exited"]

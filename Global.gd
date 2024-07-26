@@ -19,6 +19,7 @@ var mine_time : float
 
 var regen_energy : bool
 var purchased_minecart : bool
+var dads_health : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	blue_gem_chance = 20

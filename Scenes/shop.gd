@@ -24,6 +24,7 @@ var lantern_cost := 500
 var minecart_cost := 1000
 var mirror_cost := 200
 
+signal stop_timer_dad
 func _ready():
 	backpackIBought = false
 	backpackIIBought = false
@@ -160,7 +161,7 @@ func _on_lantern_mouse_exited():
 func _on_lantern_pressed():
 	if Global.total_coins >= lantern_cost:
 		Global.total_coins = Global.total_coins - lantern_cost
-	$CanvasLayer/Panel/Lantern.queue_free()
+		$CanvasLayer/Panel/Lantern.queue_free()
 
 
 
@@ -180,8 +181,8 @@ func _on_minecart_mouse_exited():
 func _on_minecart_pressed():
 	if Global.total_coins >= minecart_cost:
 		Global.total_coins = Global.total_coins - minecart_cost
-	$CanvasLayer/Panel/Minecart.queue_free()
-	Global.purchased_minecart = true
+		$CanvasLayer/Panel/Minecart.queue_free()
+		Global.purchased_minecart = true
 	
 ################## MINECART BUTTON END ######################
 
@@ -199,6 +200,18 @@ func _on_mirror_mouse_exited():
 func _on_mirror_pressed():
 	if Global.total_coins >= mirror_cost:
 		Global.total_coins = Global.total_coins - mirror_cost
-	$CanvasLayer/Panel/Mirror.queue_free()
+		$CanvasLayer/Panel/Mirror.queue_free()
+		$ItemsUI/ProgressBar.show()
+		$ItemsUI/ProgressBar.value = Global.dads_health
+		$ItemsUI/ProgressBar/Timer.start()
+		stop_timer_dad.emit()
+		$ItemsUI/ProgressBar.show()
+		$ItemsUI/Dadsbar.show()
 	
+
+func _on_timer_timeout():
+	$ItemsUI/ProgressBar.value -= 10
 ################## MIRROR BUTTON END ######################
+
+
+
