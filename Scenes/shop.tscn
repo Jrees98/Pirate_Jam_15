@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ot2mpv1d6pvq"]
+[gd_scene load_steps=21 format=3 uid="uid://ot2mpv1d6pvq"]
 
 [ext_resource type="Texture2D" uid="uid://bdta6gtirqse" path="res://Assets/Shop.png" id="1_72fx0"]
 [ext_resource type="Script" path="res://Scenes/shop.gd" id="1_qoqpp"]
@@ -9,6 +9,9 @@
 [ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="7_52eks"]
 [ext_resource type="Texture2D" uid="uid://bi3ea61u3w04i" path="res://Assets/boots.png" id="8_as0hq"]
 [ext_resource type="Texture2D" uid="uid://driu81yb24gq3" path="res://Assets/pickaxe.png" id="9_hfjce"]
+[ext_resource type="Texture2D" uid="uid://c3xn5sutucekx" path="res://Assets/lantern.png" id="10_swqye"]
+[ext_resource type="Texture2D" uid="uid://erbgsdcl3u8a" path="res://Assets/minecart.png" id="11_l53kk"]
+[ext_resource type="Texture2D" uid="uid://cayoay8o8ys7k" path="res://Assets/Untitled 24.png" id="12_j0g3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85vvl"]
 size = Vector2(55, 18)
@@ -40,7 +43,6 @@ position = Vector2(23.5, 42)
 shape = SubResource("RectangleShape2D_85vvl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -99,7 +101,7 @@ scale = Vector2(0.0865994, 0.0799078)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_52eks")
 theme_override_font_sizes/font_size = 16
-text = "Backpack III"
+text = "Backpack I"
 
 [node name="BackpackPrice" type="Label" parent="CanvasLayer/Panel/Backpack1"]
 layout_mode = 0
@@ -218,6 +220,167 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_52eks")
 text = "50g"
 
+[node name="Lantern" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1304.0
+offset_top = 573.0
+offset_right = 1312.0
+offset_bottom = 581.0
+scale = Vector2(51.195, 49.7195)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3bxjm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_67twj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lopv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6345")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/Panel/Lantern"]
+position = Vector2(3.9034, 4.07309)
+scale = Vector2(0.243963, 0.257248)
+texture = ExtResource("4_4b0lm")
+
+[node name="Border1" type="Sprite2D" parent="CanvasLayer/Panel/Lantern/ButtonSprite"]
+visible = false
+z_index = 1
+position = Vector2(0.500007, -0.166667)
+scale = Vector2(1.596, 1.74374)
+texture = ExtResource("5_yl5sc")
+
+[node name="Lantern" type="Sprite2D" parent="CanvasLayer/Panel/Lantern"]
+position = Vector2(4.08243, 3.74099)
+scale = Vector2(0.0798797, 0.0788607)
+texture = ExtResource("10_swqye")
+
+[node name="LanternLabel" type="Label" parent="CanvasLayer/Panel/Lantern"]
+layout_mode = 0
+offset_left = 2.20725
+offset_top = 0.160903
+offset_right = 74.2072
+offset_bottom = 23.1608
+scale = Vector2(0.0865994, 0.0799078)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+theme_override_font_sizes/font_size = 16
+text = "Lantern"
+
+[node name="LanternPrice" type="Label" parent="CanvasLayer/Panel/Lantern"]
+layout_mode = 0
+offset_left = 2.73464
+offset_top = 5.55115
+offset_right = 42.7346
+offset_bottom = 28.5511
+scale = Vector2(0.0896567, 0.137196)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "500g"
+
+[node name="Minecart" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 570.0
+offset_right = 805.0
+offset_bottom = 578.0
+scale = Vector2(51.195, 49.7195)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3bxjm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_67twj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lopv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6345")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/Panel/Minecart"]
+position = Vector2(3.9034, 4.07309)
+scale = Vector2(0.243963, 0.257248)
+texture = ExtResource("4_4b0lm")
+
+[node name="Border1" type="Sprite2D" parent="CanvasLayer/Panel/Minecart/ButtonSprite"]
+visible = false
+z_index = 1
+position = Vector2(0.500007, -0.166667)
+scale = Vector2(1.596, 1.74374)
+texture = ExtResource("5_yl5sc")
+
+[node name="Lantern" type="Sprite2D" parent="CanvasLayer/Panel/Minecart"]
+position = Vector2(4.08243, 3.74099)
+scale = Vector2(0.0798797, 0.0788607)
+texture = ExtResource("11_l53kk")
+
+[node name="LanternLabel" type="Label" parent="CanvasLayer/Panel/Minecart"]
+layout_mode = 0
+offset_left = 2.05098
+offset_top = 0.301692
+offset_right = 74.0509
+offset_bottom = 23.3016
+scale = Vector2(0.0865994, 0.0799078)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+theme_override_font_sizes/font_size = 16
+text = "Minecart"
+
+[node name="MinecartPrice" type="Label" parent="CanvasLayer/Panel/Minecart"]
+layout_mode = 0
+offset_left = 2.73464
+offset_top = 5.55115
+offset_right = 42.7346
+offset_bottom = 28.5511
+scale = Vector2(0.0896567, 0.137196)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "5000g"
+
+[node name="Mirror" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 571.0
+offset_right = 314.0
+offset_bottom = 579.0
+scale = Vector2(51.195, 49.7195)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjg30")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3bxjm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_67twj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lopv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6345")
+
+[node name="ButtonSprite" type="Sprite2D" parent="CanvasLayer/Panel/Mirror"]
+position = Vector2(3.9034, 4.07309)
+scale = Vector2(0.243963, 0.257248)
+texture = ExtResource("4_4b0lm")
+
+[node name="Border1" type="Sprite2D" parent="CanvasLayer/Panel/Mirror/ButtonSprite"]
+visible = false
+z_index = 1
+position = Vector2(0.500007, -0.166667)
+scale = Vector2(1.596, 1.74374)
+texture = ExtResource("5_yl5sc")
+
+[node name="Mirror" type="Sprite2D" parent="CanvasLayer/Panel/Mirror"]
+position = Vector2(3.3597, 3.19794)
+scale = Vector2(0.0998903, 0.10024)
+texture = ExtResource("12_j0g3r")
+hframes = 8
+frame = 1
+
+[node name="LanternLabel" type="Label" parent="CanvasLayer/Panel/Mirror"]
+layout_mode = 0
+offset_left = 2.16818
+offset_top = 0.241354
+offset_right = 74.1681
+offset_bottom = 23.2413
+scale = Vector2(0.0865994, 0.0799078)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+theme_override_font_sizes/font_size = 16
+text = "Mirror"
+
+[node name="MirrorPrice" type="Label" parent="CanvasLayer/Panel/Mirror"]
+layout_mode = 0
+offset_left = 2.69558
+offset_top = 5.53103
+offset_right = 42.6955
+offset_bottom = 28.531
+scale = Vector2(0.0896567, 0.137196)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52eks")
+text = "1000g"
+
 [node name="ItemsUI" type="CanvasLayer" parent="."]
 layer = 0
 
@@ -282,3 +445,12 @@ text = "I"
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Pickaxe" to="." method="_on_pickaxe_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Panel/Pickaxe" to="." method="_on_pickaxe_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Pickaxe" to="." method="_on_pickaxe_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Lantern" to="." method="_on_lantern_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Lantern" to="." method="_on_lantern_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Lantern" to="." method="_on_lantern_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Minecart" to="." method="_on_minecart_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Minecart" to="." method="_on_minecart_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Minecart" to="." method="_on_minecart_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Mirror" to="." method="_on_mirror_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Mirror" to="." method="_on_mirror_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Mirror" to="." method="_on_mirror_pressed"]

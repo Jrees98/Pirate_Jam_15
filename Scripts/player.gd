@@ -37,7 +37,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false
 		if direction < 0:
 			$AnimatedSprite2D.flip_h = true
-	if Input.is_action_pressed("minecart"):
+	if Input.is_action_pressed("minecart") and Global.purchased_minecart == true:
 		$AnimatedSprite2D.play("minecart")
 		in_minecart = true
 		Global.move_speed = 3000
@@ -58,8 +58,14 @@ func _physics_process(delta):
 	
 
 func _on_regain_energy_timeout():
+
 	$RockNodeUI/SanityBar.value += 10
 
 
+
 func _on_lose_energy_timeout():
+	var current_sanity = $RockNodeUI/SanityBar.value
 	$RockNodeUI/SanityBar.value -= 10
+	if current_sanity <= 0:
+		$RockNodeUI/ProgressBar.value -= 10
+	print($RockNodeUI/SanityBar.value)

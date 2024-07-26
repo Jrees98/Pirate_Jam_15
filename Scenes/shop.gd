@@ -20,11 +20,20 @@ var pickaxeIII_cost := 1000
 var pickaxeIBought : bool
 var pickaxeIIBought : bool
 
+var lantern_cost := 500
+var minecart_cost := 1000
+var mirror_cost := 200
+
 func _ready():
 	backpackIBought = false
 	backpackIIBought = false
 	backpackIIIBought = false
 	$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack I"
+	$CanvasLayer/Panel/Boots/BootsPrice.text = str(bootsI_cost) + "g"
+	$CanvasLayer/Panel/Pickaxe/PickaxePrice.text = str(pickaxeI_cost) + "g"
+	$CanvasLayer/Panel/Lantern/LanternPrice.text = str(lantern_cost) + "g"
+	$CanvasLayer/Panel/Mirror/MirrorPrice.text = str(mirror_cost) + "g"
+	$CanvasLayer/Panel/Minecart/MinecartPrice.text = str(minecart_cost) + "g"
 	
 func _on_body_entered(body):
 	$CanvasLayer.show()
@@ -139,10 +148,57 @@ func _on_pickaxe_pressed():
 ################## PICKAXE BUTTON END ######################
 
 
+################## LANTERN BUTTON START ######################
+func _on_lantern_mouse_entered():
+	$CanvasLayer/Panel/Lantern/ButtonSprite/Border1.show()
+
+
+func _on_lantern_mouse_exited():
+	$CanvasLayer/Panel/Lantern/ButtonSprite/Border1.hide()
+
+
+func _on_lantern_pressed():
+	if Global.total_coins >= lantern_cost:
+		Global.total_coins = Global.total_coins - lantern_cost
+	$CanvasLayer/Panel/Lantern.queue_free()
 
 
 
 
+################## LANTERN BUTTON END ######################
+
+################## MINECART BUTTON START ######################
+
+func _on_minecart_mouse_entered():
+	$CanvasLayer/Panel/Minecart/ButtonSprite/Border1.show()
+
+
+func _on_minecart_mouse_exited():
+	$CanvasLayer/Panel/Minecart/ButtonSprite/Border1.hide()
+
+
+func _on_minecart_pressed():
+	if Global.total_coins >= minecart_cost:
+		Global.total_coins = Global.total_coins - minecart_cost
+	$CanvasLayer/Panel/Minecart.queue_free()
+	Global.purchased_minecart = true
+	
+################## MINECART BUTTON END ######################
 
 
 
+################## MIRROR BUTTON START ######################
+func _on_mirror_mouse_entered():
+	$CanvasLayer/Panel/Mirror/ButtonSprite/Border1.show()
+
+
+func _on_mirror_mouse_exited():
+	$CanvasLayer/Panel/Mirror/ButtonSprite/Border1.hide()
+
+
+func _on_mirror_pressed():
+	if Global.total_coins >= mirror_cost:
+		Global.total_coins = Global.total_coins - mirror_cost
+	$CanvasLayer/Panel/Mirror.queue_free()
+	
+################## MIRROR BUTTON END ######################

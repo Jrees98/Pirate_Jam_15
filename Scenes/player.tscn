@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0v7jd01x8glb"]
+[gd_scene load_steps=22 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
 [ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
@@ -76,6 +76,12 @@ size = Vector2(71, 119)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al6ms"]
 bg_color = Color(0.560784, 0, 0.768627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv82u"]
+bg_color = Color(0.964706, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek4kc"]
+bg_color = Color(0, 1, 0.25098, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -222,9 +228,10 @@ offset_left = 2226.0
 offset_top = 978.0
 offset_right = 2230.0
 offset_bottom = 1005.0
-scale = Vector2(7.29923, 9.96171)
+scale = Vector2(10.92, 10.92)
 theme_override_styles/fill = SubResource("StyleBoxFlat_al6ms")
 value = 50.0
+rounded = true
 fill_mode = 3
 show_percentage = false
 
@@ -232,6 +239,18 @@ show_percentage = false
 wait_time = 0.1
 
 [node name="LoseEnergy" type="Timer" parent="RockNodeUI/SanityBar"]
+
+[node name="ProgressBar" type="ProgressBar" parent="RockNodeUI"]
+offset_left = 2157.0
+offset_top = 978.0
+offset_right = 2161.0
+offset_bottom = 1005.0
+scale = Vector2(10.92, 10.92)
+theme_override_styles/background = SubResource("StyleBoxFlat_cv82u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ek4kc")
+value = 90.0
+fill_mode = 3
+show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
