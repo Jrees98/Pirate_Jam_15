@@ -69,7 +69,6 @@ position = Vector2(-5, 33)
 shape = SubResource("RectangleShape2D_ykcnq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15

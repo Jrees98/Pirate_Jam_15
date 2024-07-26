@@ -443,10 +443,10 @@ text = "I"
 
 [node name="ProgressBar" type="ProgressBar" parent="ItemsUI"]
 visible = false
-offset_left = 1171.0
-offset_top = 105.0
-offset_right = 1175.0
-offset_bottom = 132.0
+offset_left = 1244.0
+offset_top = 102.0
+offset_right = 1248.0
+offset_bottom = 129.0
 rotation = 1.5708
 scale = Vector2(10, 10)
 theme_override_styles/background = SubResource("StyleBoxFlat_fylq2")
@@ -458,10 +458,10 @@ show_percentage = false
 
 [node name="Dadsbar" type="Label" parent="ItemsUI"]
 visible = false
-offset_left = 927.0
-offset_top = 43.0
-offset_right = 1023.0
-offset_bottom = 66.0
+offset_left = 1000.0
+offset_top = 40.0
+offset_right = 1096.0
+offset_bottom = 63.0
 scale = Vector2(2.33594, 4.97126)
 theme_override_fonts/font = ExtResource("7_52eks")
 text = "Dad's Health bar"
