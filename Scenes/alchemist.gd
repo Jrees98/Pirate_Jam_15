@@ -79,7 +79,7 @@ func _on_button_mouse_exited():
 
 
 func _on_button_pressed():
-	if all_slots_full:
+	if all_slots_full or Global.total_gems < 1:
 		return
 	if slot_1_full == false:
 		$CanvasLayer/Panel/Background/Slot1/Diamond.show()
@@ -109,7 +109,7 @@ func _on_emerald_button_mouse_exited():
 
 
 func _on_emerald_button_pressed():
-	if all_slots_full:
+	if all_slots_full or Global.total_greengem < 1:
 		return
 	if slot_1_full == false:
 		$CanvasLayer/Panel/Background/Slot1/Emerald.show()
@@ -139,7 +139,7 @@ func _on_sapphire_button_mouse_exited():
 
 
 func _on_sapphire_button_pressed():
-	if all_slots_full:
+	if all_slots_full or Global.total_whitegem < 1:
 		return
 	if slot_1_full == false:
 		$CanvasLayer/Panel/Background/Slot1/Sapphire.show()
@@ -168,7 +168,7 @@ func _on_ruby_button_mouse_exited():
 
 
 func _on_ruby_button_pressed():
-	if all_slots_full:
+	if all_slots_full or Global.total_redgem < 1:
 		return
 	if slot_1_full == false:
 		$CanvasLayer/Panel/Background/Slot1/Ruby.show()
@@ -197,7 +197,7 @@ func _on_amethyst_button_mouse_exited():
 
 
 func _on_amethyst_button_pressed():
-	if all_slots_full:
+	if all_slots_full or Global.total_purplegem < 1:
 		return
 	if slot_1_full == false:
 		$CanvasLayer/Panel/Background/Slot1/Amethyst.show()
@@ -229,6 +229,16 @@ func _on_combine_button_pressed():
 	var sorted_gems_array = []
 	for gem in gems_array:
 		sorted_gems_array.append(gem)
+		if gem == "Diamond":
+			Global.total_gems -= 1
+		elif gem == "Emerald":
+			Global.total_greengem -= 1
+		elif gem == "Ruby":
+			Global.total_redgem -= 1
+		elif gem == "Amethyst":
+			Global.total_purplegem -=1
+		elif gem == "Sapphire":
+			Global.total_whitegem -= 1
 	
 	var sorted_gems = str(" ").join(sorted_gems_array)
 	
@@ -238,7 +248,14 @@ func _on_combine_button_pressed():
 		if potion_recipes[key] == sorted_gems:
 			print(key)
 		
+	reload_table()
+	print(sorted_gems_array)
 	
+	var diamond = Global.total_gems
+	var emerald = Global.total_greengem
+	var ruby = Global.total_redgem
+	var amethyst = Global.total_purplegem
+	var sapphire = Global.total_whitegem
 
 
 

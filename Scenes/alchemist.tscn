@@ -140,6 +140,10 @@ shape = SubResource("RectangleShape2D_ykcnq")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y23b2")
@@ -325,7 +329,7 @@ scale = Vector2(1.125, 1.12247)
 texture = ExtResource("11_5pxak")
 
 [node name="Sapphire" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
-position = Vector2(0.594425, -25.1173)
+position = Vector2(32.8016, -24.1341)
 scale = Vector2(0.380421, 0.630742)
 texture = ExtResource("8_jcdsr")
 
@@ -347,7 +351,7 @@ scale = Vector2(1.27845, 1.27543)
 texture = ExtResource("11_5pxak")
 
 [node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
-position = Vector2(14.1041, -25.1173)
+position = Vector2(-0.702503, -25.2067)
 scale = Vector2(0.380421, 0.630742)
 texture = ExtResource("9_xaolf")
 
@@ -369,7 +373,7 @@ scale = Vector2(1.27845, 1.27543)
 texture = ExtResource("11_5pxak")
 
 [node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
-position = Vector2(30.3158, -25.1173)
+position = Vector2(15.7253, -26.0112)
 scale = Vector2(0.380421, 0.630742)
 texture = ExtResource("10_pi2m2")
 

@@ -46,3 +46,13 @@ func _on_shop_stop_timer_dad():
 	$House/Timer.stop()
 	$House/Timer.start()
 
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("god_mode") and OS.is_debug_build():
+		Global.total_gems = 1000
+		Global.total_greengem = 1000
+		Global.total_purplegem = 1000
+		Global.total_redgem = 1000
+		Global.total_whitegem = 1000
+		Global.move_speed = 5000
+		Global.total_coins = 100000
