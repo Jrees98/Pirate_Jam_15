@@ -501,6 +501,9 @@ offset_bottom = 19.2
 theme_override_fonts/font = ExtResource("7_kwlbv")
 text = "0"
 
+[node name="LuckTimer" type="Timer" parent="PotionsUI/LuckPotion"]
+wait_time = 30.0
+
 [node name="FearPotion" type="Sprite2D" parent="PotionsUI"]
 position = Vector2(1234, 1195)
 scale = Vector2(5, 5)
@@ -532,6 +535,27 @@ offset_bottom = 19.4
 theme_override_fonts/font = ExtResource("7_kwlbv")
 text = "0"
 
+[node name="PotionsBuff" type="CanvasLayer" parent="."]
+
+[node name="LuckyPotionBuff" type="Sprite2D" parent="PotionsBuff"]
+visible = false
+position = Vector2(2207, 464)
+scale = Vector2(3, 3)
+texture = ExtResource("12_ga6ye")
+hframes = 5
+frame = 1
+
+[node name="LuckCountDown" type="Label" parent="PotionsBuff/LuckyPotionBuff"]
+offset_left = -6.33333
+offset_top = -32.0
+offset_right = 33.6667
+offset_bottom = -9.00001
+scale = Vector2(1.3723, 1.24365)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "30"
+
+[node name="LuckyTimer" type="Timer" parent="PotionsBuff/LuckyPotionBuff"]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Background/Combine/CombineButton" to="." method="_on_combine_button_pressed"]
@@ -551,3 +575,8 @@ text = "0"
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Background/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_pressed"]
+[connection signal="mouse_entered" from="PotionsUI/LuckPotion/LuckPotionButton" to="." method="_on_luck_potion_button_mouse_entered"]
+[connection signal="mouse_exited" from="PotionsUI/LuckPotion/LuckPotionButton" to="." method="_on_luck_potion_button_mouse_exited"]
+[connection signal="pressed" from="PotionsUI/LuckPotion/LuckPotionButton" to="." method="_on_luck_potion_button_pressed"]
+[connection signal="timeout" from="PotionsUI/LuckPotion/LuckTimer" to="." method="_on_luck_timer_timeout"]
+[connection signal="timeout" from="PotionsBuff/LuckyPotionBuff/LuckyTimer" to="." method="_on_lucky_timer_timeout"]

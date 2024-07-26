@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0v7jd01x8glb"]
+[gd_scene load_steps=23 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
 [ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b157jm05irlvi" path="res://Assets/Untitled 14.png" id="9_rhwn0"]
 [ext_resource type="Texture2D" uid="uid://s4ufnhdi0b5q" path="res://Assets/Untitled 19.png" id="10_5xfsj"]
 [ext_resource type="Texture2D" uid="uid://pdom4vs0mqf6" path="res://Assets/Untitled 20.png" id="11_vpsep"]
+[ext_resource type="Texture2D" uid="uid://hryl0q3e7hr6" path="res://Assets/opal.png" id="12_ht1iw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdtek"]
 atlas = ExtResource("4_b7qrj")
@@ -123,13 +124,15 @@ text = "Press E to mine"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -235.0
-offset_right = 351.0
+offset_left = 3.0
+offset_top = -468.0
+offset_right = 354.0
+offset_bottom = -233.0
 grow_vertical = 0
 alignment = 2
 
 [node name="CoalSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(109, -767)
+position = Vector2(124, -592)
 scale = Vector2(4.03598, 4.93541)
 texture = ExtResource("3_ligsf")
 
@@ -200,7 +203,7 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="WhiteGemSprite5" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(164, 159)
+position = Vector2(102, 159)
 scale = Vector2(3.80673, 4.45425)
 texture = ExtResource("11_vpsep")
 
@@ -209,6 +212,21 @@ offset_left = -6.48174
 offset_top = -14.5548
 offset_right = 29.5183
 offset_bottom = 11.4452
+theme_override_fonts/font = ExtResource("5_nfwr5")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="OpalGemSprite6" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
+position = Vector2(236, 186)
+scale = Vector2(1.07812, 1.58681)
+texture = ExtResource("12_ht1iw")
+
+[node name="OpalGemQuantity" type="Label" parent="RockNodeUI/HBoxContainer/OpalGemSprite6"]
+offset_left = -9.27535
+offset_top = -48.5252
+offset_right = 26.7247
+offset_bottom = -22.5252
+scale = Vector2(2.71093, 2.28301)
 theme_override_fonts/font = ExtResource("5_nfwr5")
 theme_override_font_sizes/font_size = 32
 text = "0"

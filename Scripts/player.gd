@@ -53,6 +53,7 @@ func _physics_process(delta):
 	$RockNodeUI/HBoxContainer/GreenGemSprite3/GemQuantity.text = str(Global.total_greengem)
 	$RockNodeUI/HBoxContainer/PurpleGemSprite4/GemQuantity.text = str(Global.total_purplegem)
 	$RockNodeUI/HBoxContainer/WhiteGemSprite5/GemQuantity.text = str(Global.total_whitegem)
+	$RockNodeUI/HBoxContainer/OpalGemSprite6/OpalGemQuantity.text = str(Global.total_opals)
 	speed = Global.move_speed
 	
 	

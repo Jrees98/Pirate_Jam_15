@@ -31,6 +31,7 @@ func _ready():
 func _process(delta):
 	if slot_1_full and slot_2_full and slot_3_full:
 		all_slots_full = true
+	$PotionsUI/LuckPotion/LuckPotionQuantity.text = str(total_luck_potions)
 
 func reload_table():
 	$CanvasLayer/Panel/Background/Slot1/Diamond.hide()
@@ -267,6 +268,41 @@ func _on_combine_button_pressed():
 				
 			
 	reload_table()
+
+
+
+
+
+func _on_luck_potion_button_mouse_entered():
+	$PotionsUI/LuckPotion/LuckPotionSelector.show()
+
+
+func _on_luck_potion_button_mouse_exited():
+	$PotionsUI/LuckPotion/LuckPotionSelector.hide()
+
+var lucky_countdown_timer_value := 30
+func _on_luck_potion_button_pressed():
+	if total_luck_potions > 0:
+		total_luck_potions -= 1
+		$PotionsUI/LuckPotion/LuckPotionQuantity.text = str(total_luck_potions)
+		Global.luck_potion_active = true
+		$PotionsUI/LuckPotion/LuckTimer.start()
+		$PotionsBuff/LuckyPotionBuff.show()
+		$PotionsBuff/LuckyPotionBuff/LuckyTimer.start()
+		lucky_countdown_timer_value = 30
+		$PotionsBuff/LuckyPotionBuff/LuckCountDown.text = str(lucky_countdown_timer_value)
+
+func _on_lucky_timer_timeout():
+	lucky_countdown_timer_value -= 1
+	$PotionsBuff/LuckyPotionBuff/LuckCountDown.text = str(lucky_countdown_timer_value)
+
+func _on_luck_timer_timeout():
+	$PotionsUI/LuckPotion/LuckTimer.stop()
+	$PotionsBuff/LuckyPotionBuff/LuckyTimer.stop()
+	$PotionsBuff/LuckyPotionBuff.hide()
+	Global.luck_potion_active = false
+
+
 
 
 
