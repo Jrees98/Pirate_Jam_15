@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=50 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
 [ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://pdom4vs0mqf6" path="res://Assets/Untitled 20.png" id="8_jcdsr"]
 [ext_resource type="Texture2D" uid="uid://bfpoipcw1glka" path="res://Assets/Untitled 15.png" id="9_xaolf"]
 [ext_resource type="Texture2D" uid="uid://s4ufnhdi0b5q" path="res://Assets/Untitled 19.png" id="10_pi2m2"]
+[ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="11_5pxak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
 atlas = ExtResource("1_17htp")
@@ -181,15 +182,25 @@ position = Vector2(768.896, 732.875)
 scale = Vector2(9.71875, 7.9375)
 texture = ExtResource("6_0huyd")
 
-[node name="Slot2" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
-position = Vector2(1139, 732.875)
-scale = Vector2(9.71875, 7.9375)
-texture = ExtResource("6_0huyd")
+[node name="Diamond" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+visible = false
+texture = ExtResource("4_ojbbq")
 
-[node name="Slot3" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
-position = Vector2(1509.1, 732.875)
-scale = Vector2(9.71875, 7.9375)
-texture = ExtResource("6_0huyd")
+[node name="Emerald" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+visible = false
+texture = ExtResource("4_mrn3j")
+
+[node name="Sapphire" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+visible = false
+texture = ExtResource("8_jcdsr")
+
+[node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+position = Vector2(-1.94428, -2)
+texture = ExtResource("9_xaolf")
+
+[node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+visible = false
+texture = ExtResource("10_pi2m2")
 
 [node name="Gems" type="Node" parent="CanvasLayer/Panel/Background"]
 
@@ -210,6 +221,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_prdcq")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_g88vb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w5npe")
 
+[node name="selector" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems/Diamond"]
+visible = false
+position = Vector2(0.625, 0)
+scale = Vector2(1.125, 1.12247)
+texture = ExtResource("11_5pxak")
+
 [node name="Emerald" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
 position = Vector2(865, 350)
 scale = Vector2(8, 8.018)
@@ -225,6 +242,12 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_wgmhx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iak02")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_h5vfw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_esc2x")
+
+[node name="selector2" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems/Emerald"]
+visible = false
+position = Vector2(-0.25, -1.2472)
+scale = Vector2(1.125, 1.12247)
+texture = ExtResource("11_5pxak")
 
 [node name="Sapphire" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
 position = Vector2(1150, 340)
@@ -242,6 +265,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_gdtms")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2wvsg")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r65lc")
 
+[node name="selector3" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems/Sapphire"]
+visible = false
+position = Vector2(-0.284103, 0)
+scale = Vector2(1.27845, 1.27543)
+texture = ExtResource("11_5pxak")
+
 [node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
 position = Vector2(1400, 340)
 scale = Vector2(7.03976, 7.05642)
@@ -258,6 +287,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wql6t")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_xequk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hbab3")
 
+[node name="selector4" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems/Ruby"]
+visible = false
+position = Vector2(3.12511, 0)
+scale = Vector2(1.27845, 1.27543)
+texture = ExtResource("11_5pxak")
+
 [node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems"]
 position = Vector2(1700, 340)
 scale = Vector2(7.03976, 7.05642)
@@ -273,6 +308,12 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_wl6xm")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7ijdr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_y56bu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7s6ip")
+
+[node name="selector5" type="Sprite2D" parent="CanvasLayer/Panel/Background/Gems/Amethyst"]
+visible = false
+position = Vector2(0.142044, 0)
+scale = Vector2(1.27845, 1.27543)
+texture = ExtResource("11_5pxak")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
