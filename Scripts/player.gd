@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed : int
 var in_minecart : bool
 func _ready():
-	$RockNodeUI/HBoxContainer/CoalSprite/CoalQuantity.text = str(Global.total_coal)
+	$RockNodeUI/CoalSprite/CoalQuantity.text = str(Global.total_coal)
 	$RockNodeUI/HBoxContainer/BlueGemSprite/GemQuantity.text = str(Global.total_gems)
 	$RockNodeUI/Coins.text = "$ " + str(Global.total_coins)
 	speed = Global.move_speed
@@ -46,7 +46,7 @@ func _physics_process(delta):
 
 	
 	#update UI counts
-	$RockNodeUI/HBoxContainer/CoalSprite/CoalQuantity.text = str(Global.total_coal)
+	$RockNodeUI/CoalSprite/CoalQuantity.text = str(Global.total_coal)
 	$RockNodeUI/HBoxContainer/BlueGemSprite/GemQuantity.text = str(Global.total_gems)
 	$RockNodeUI/Coins.text = "$ " + str(Global.total_coins)
 	$RockNodeUI/HBoxContainer/RedGemSprite2/GemQuantity.text = str(Global.total_redgem)
@@ -70,3 +70,13 @@ func _on_lose_energy_timeout():
 	if current_sanity <= 0:
 		$RockNodeUI/ProgressBar.value -= 10
 	print($RockNodeUI/SanityBar.value)
+
+
+var show_inventory = false
+func _on_gems_toggle_button_pressed():
+	if show_inventory == false:
+		$RockNodeUI/HBoxContainer.show()
+		show_inventory = true
+	else:
+		$RockNodeUI/HBoxContainer.hide()
+		show_inventory = false

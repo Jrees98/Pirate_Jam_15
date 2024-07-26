@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://0v7jd01x8glb"]
+[gd_scene load_steps=29 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
 [ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://s4ufnhdi0b5q" path="res://Assets/Untitled 19.png" id="10_5xfsj"]
 [ext_resource type="Texture2D" uid="uid://pdom4vs0mqf6" path="res://Assets/Untitled 20.png" id="11_vpsep"]
 [ext_resource type="Texture2D" uid="uid://hryl0q3e7hr6" path="res://Assets/opal.png" id="12_ht1iw"]
+[ext_resource type="Texture2D" uid="uid://46wyfoxca4u0" path="res://Assets/backpack.png" id="13_f76i6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdtek"]
 atlas = ExtResource("4_b7qrj")
@@ -84,6 +85,16 @@ bg_color = Color(0.964706, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek4kc"]
 bg_color = Color(0, 1, 0.25098, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pdr77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nygen"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgdrl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lfas"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an1ty"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 8
@@ -120,7 +131,22 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Press E to mine"
 
+[node name="CoalSprite" type="Sprite2D" parent="RockNodeUI"]
+position = Vector2(127, 236)
+scale = Vector2(4.03598, 4.93541)
+texture = ExtResource("3_ligsf")
+
+[node name="CoalQuantity" type="Label" parent="RockNodeUI/CoalSprite"]
+offset_left = -7.80951
+offset_top = -16.8358
+offset_right = 28.1905
+offset_bottom = 9.16418
+theme_override_fonts/font = ExtResource("5_nfwr5")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="RockNodeUI"]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -130,20 +156,6 @@ offset_right = 354.0
 offset_bottom = -233.0
 grow_vertical = 0
 alignment = 2
-
-[node name="CoalSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
-position = Vector2(124, -592)
-scale = Vector2(4.03598, 4.93541)
-texture = ExtResource("3_ligsf")
-
-[node name="CoalQuantity" type="Label" parent="RockNodeUI/HBoxContainer/CoalSprite"]
-offset_left = -7.80951
-offset_top = -16.8358
-offset_right = 28.1905
-offset_bottom = 9.16418
-theme_override_fonts/font = ExtResource("5_nfwr5")
-theme_override_font_sizes/font_size = 32
-text = "0"
 
 [node name="BlueGemSprite" type="Sprite2D" parent="RockNodeUI/HBoxContainer"]
 position = Vector2(89, -106)
@@ -270,6 +282,23 @@ value = 90.0
 fill_mode = 3
 show_percentage = false
 
+[node name="BackpackToggleButton" type="Sprite2D" parent="RockNodeUI"]
+position = Vector2(112, 1182)
+scale = Vector2(5, 5)
+texture = ExtResource("13_f76i6")
+
+[node name="GemsToggleButton" type="Button" parent="RockNodeUI/BackpackToggleButton"]
+offset_left = -13.0
+offset_top = -7.0
+offset_right = 13.0
+offset_bottom = 18.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pdr77")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nygen")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fgdrl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7lfas")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_an1ty")
+toggle_mode = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 limit_top = -200
@@ -277,3 +306,4 @@ limit_bottom = 450
 
 [connection signal="timeout" from="RockNodeUI/SanityBar/RegainEnergy" to="." method="_on_regain_energy_timeout"]
 [connection signal="timeout" from="RockNodeUI/SanityBar/LoseEnergy" to="." method="_on_lose_energy_timeout"]
+[connection signal="pressed" from="RockNodeUI/BackpackToggleButton/GemsToggleButton" to="." method="_on_gems_toggle_button_pressed"]
