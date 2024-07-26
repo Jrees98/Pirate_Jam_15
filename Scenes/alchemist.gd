@@ -225,7 +225,7 @@ func _on_reset_button_pressed():
 	reload_table()
 
 
-### cOMBINE BUTTON ###
+### COMBINE BUTTON ###
 func _on_combine_button_pressed():
 	var potion := ""
 	combination = slot_1_gem + " " + slot_2_gem + " " + slot_3_gem

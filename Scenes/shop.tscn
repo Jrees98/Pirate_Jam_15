@@ -1,11 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://ot2mpv1d6pvq"]
+[gd_scene load_steps=25 format=3 uid="uid://ot2mpv1d6pvq"]
 
 [ext_resource type="Texture2D" uid="uid://bdta6gtirqse" path="res://Assets/Shop.png" id="1_72fx0"]
 [ext_resource type="Script" path="res://Scenes/shop.gd" id="1_qoqpp"]
 [ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="3_7fnxc"]
 [ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="4_4b0lm"]
 [ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="5_yl5sc"]
+[ext_resource type="Texture2D" uid="uid://dapy1kgvmfcq1" path="res://Assets/Pots.png" id="6_4v245"]
 [ext_resource type="Texture2D" uid="uid://46wyfoxca4u0" path="res://Assets/backpack.png" id="6_ctawk"]
+[ext_resource type="Texture2D" uid="uid://hryl0q3e7hr6" path="res://Assets/opal.png" id="7_5ad7x"]
 [ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="7_52eks"]
 [ext_resource type="Texture2D" uid="uid://bi3ea61u3w04i" path="res://Assets/boots.png" id="8_as0hq"]
 [ext_resource type="Texture2D" uid="uid://driu81yb24gq3" path="res://Assets/pickaxe.png" id="9_hfjce"]
@@ -93,33 +95,40 @@ position = Vector2(0.500007, -0.166667)
 scale = Vector2(1.596, 1.74374)
 texture = ExtResource("5_yl5sc")
 
-[node name="BackpackSprite" type="Sprite2D" parent="CanvasLayer/Panel/Backpack1"]
-position = Vector2(3.86756, 3.64043)
-scale = Vector2(0.132733, 0.130656)
-texture = ExtResource("6_ctawk")
+[node name="CureSprite" type="Sprite2D" parent="CanvasLayer/Panel/Backpack1"]
+position = Vector2(3.8871, 4.00245)
+scale = Vector2(0.167394, 0.176432)
+texture = ExtResource("6_4v245")
+hframes = 5
+frame = 3
+
+[node name="opals" type="Sprite2D" parent="CanvasLayer/Panel/Backpack1/CureSprite"]
+position = Vector2(5.95119, 18.8097)
+scale = Vector2(0.0784576, 0.111299)
+texture = ExtResource("7_5ad7x")
 
 [node name="BackpackLabel" type="Label" parent="CanvasLayer/Panel/Backpack1"]
 layout_mode = 0
-offset_left = 0.588321
-offset_top = 0.356833
-offset_right = 72.5883
-offset_bottom = 23.3568
+offset_left = 2.55884
+offset_top = 0.382144
+offset_right = 74.5588
+offset_bottom = 23.3821
 scale = Vector2(0.0865994, 0.0799078)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_52eks")
 theme_override_font_sizes/font_size = 16
-text = "Backpack I"
+text = "Cure"
 
 [node name="BackpackPrice" type="Label" parent="CanvasLayer/Panel/Backpack1"]
 layout_mode = 0
 offset_left = 2.73464
-offset_top = 5.55115
+offset_top = 5.53103
 offset_right = 42.7346
-offset_bottom = 28.5511
+offset_bottom = 28.531
 scale = Vector2(0.0896567, 0.137196)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_52eks")
-text = "50g"
+text = "10"
 
 [node name="Boots" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
