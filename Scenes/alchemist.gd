@@ -10,6 +10,14 @@ var slot_2_gem : String
 var slot_3_gem : String
 var combination : String
 
+var potion_recipes = {
+	"Strength Potion": "Diamond Emerald Ruby",
+	"Mining Potion": "Diamond Ruby Sapphire",
+	"Luck Potion": "Amethyst Diamond Ruby",
+	"Insanity Potion": "Emerald Ruby Sapphire"
+}
+
+
 func _ready():
 	slot_1_full = false
 	slot_2_full = false
@@ -215,4 +223,22 @@ func _on_reset_button_pressed():
 
 func _on_combine_button_pressed():
 	combination = slot_1_gem + " " + slot_2_gem + " " + slot_3_gem
-	print(combination)
+	var gems_array = combination.split(" ")
+	gems_array.sort()
+	
+	var sorted_gems_array = []
+	for gem in gems_array:
+		sorted_gems_array.append(gem)
+	
+	var sorted_gems = str(" ").join(sorted_gems_array)
+	
+	print(sorted_gems)
+	print(potion_recipes["Strength Potion"])
+	for key in potion_recipes.keys():
+		if potion_recipes[key] == sorted_gems:
+			print(key)
+		
+	
+
+
+
