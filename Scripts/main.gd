@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$House/VBoxContainer/DadsHealthBar.value = 100
@@ -32,8 +31,6 @@ func end_game():
 	
 
 
-
-
 func _on_mining_area_body_entered(body):
 	$Player/RockNodeUI/SanityBar/LoseEnergy.start()
 	$Player/RockNodeUI/SanityBar/RegainEnergy.stop()
@@ -48,3 +45,4 @@ func _on_mining_area_body_exited(body):
 func _on_shop_stop_timer_dad():
 	$House/Timer.stop()
 	$House/Timer.start()
+

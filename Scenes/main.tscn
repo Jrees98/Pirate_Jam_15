@@ -23,7 +23,7 @@ position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-4957, 287)
+position = Vector2(-4957, 300)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
