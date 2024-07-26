@@ -135,6 +135,7 @@ position = Vector2(-5, 33)
 shape = SubResource("RectangleShape2D_ykcnq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -150,7 +151,7 @@ scale = Vector2(18.5052, 11.1875)
 texture = ExtResource("2_ytyaj")
 
 [node name="Combine" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
-position = Vector2(-0.594428, 36.9162)
+position = Vector2(-13.888, 36.7374)
 scale = Vector2(0.931331, 0.499087)
 texture = ExtResource("6_0huyd")
 
@@ -175,10 +176,36 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_q3abr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ymjx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_553t6")
 
+[node name="Reset" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
+position = Vector2(16.698, 36.8268)
+scale = Vector2(0.931331, 0.499087)
+texture = ExtResource("6_0huyd")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Background/Reset"]
+offset_left = -11.3726
+offset_top = -12.1786
+offset_right = 30.6274
+offset_bottom = 10.8214
+scale = Vector2(0.657455, 1.40859)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "Reset"
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/Panel/Background/Reset"]
+offset_left = -15.0
+offset_top = -14.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nkopc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2ehdw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q3abr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ymjx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_553t6")
+
 [node name="Slots" type="Node" parent="CanvasLayer/Panel/Background"]
 
 [node name="Slot1" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
-position = Vector2(768.896, 732.875)
+position = Vector2(760, 730)
 scale = Vector2(9.71875, 7.9375)
 texture = ExtResource("6_0huyd")
 
@@ -195,10 +222,63 @@ visible = false
 texture = ExtResource("8_jcdsr")
 
 [node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+visible = false
 position = Vector2(-1.94428, -2)
 texture = ExtResource("9_xaolf")
 
 [node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot1"]
+visible = false
+texture = ExtResource("10_pi2m2")
+
+[node name="Slot2" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
+position = Vector2(1100, 730)
+scale = Vector2(9.71875, 7.9375)
+texture = ExtResource("6_0huyd")
+
+[node name="Diamond" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot2"]
+visible = false
+texture = ExtResource("4_ojbbq")
+
+[node name="Emerald" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot2"]
+visible = false
+texture = ExtResource("4_mrn3j")
+
+[node name="Sapphire" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot2"]
+visible = false
+texture = ExtResource("8_jcdsr")
+
+[node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot2"]
+visible = false
+position = Vector2(-1.94428, -2)
+texture = ExtResource("9_xaolf")
+
+[node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot2"]
+visible = false
+texture = ExtResource("10_pi2m2")
+
+[node name="Slot3" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots"]
+position = Vector2(1440, 730)
+scale = Vector2(9.71875, 7.9375)
+texture = ExtResource("6_0huyd")
+
+[node name="Diamond" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot3"]
+visible = false
+texture = ExtResource("4_ojbbq")
+
+[node name="Emerald" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot3"]
+visible = false
+texture = ExtResource("4_mrn3j")
+
+[node name="Sapphire" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot3"]
+visible = false
+texture = ExtResource("8_jcdsr")
+
+[node name="Ruby" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot3"]
+visible = false
+position = Vector2(-1.94428, -2)
+texture = ExtResource("9_xaolf")
+
+[node name="Amethyst" type="Sprite2D" parent="CanvasLayer/Panel/Background/Slots/Slot3"]
 visible = false
 texture = ExtResource("10_pi2m2")
 
@@ -232,7 +312,7 @@ position = Vector2(865, 350)
 scale = Vector2(8, 8.018)
 texture = ExtResource("4_mrn3j")
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Emerald"]
+[node name="EmeraldButton" type="Button" parent="CanvasLayer/Panel/Background/Gems/Emerald"]
 offset_left = -8.0
 offset_top = -11.0
 offset_right = 8.0
@@ -254,7 +334,7 @@ position = Vector2(1150, 340)
 scale = Vector2(7.03976, 7.05642)
 texture = ExtResource("8_jcdsr")
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Sapphire"]
+[node name="SapphireButton" type="Button" parent="CanvasLayer/Panel/Background/Gems/Sapphire"]
 offset_left = -10.0
 offset_top = -11.0
 offset_right = 8.0
@@ -276,7 +356,7 @@ position = Vector2(1400, 340)
 scale = Vector2(7.03976, 7.05642)
 texture = ExtResource("9_xaolf")
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Ruby"]
+[node name="RubyButton" type="Button" parent="CanvasLayer/Panel/Background/Gems/Ruby"]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 11.0
@@ -298,7 +378,7 @@ position = Vector2(1700, 340)
 scale = Vector2(7.03976, 7.05642)
 texture = ExtResource("10_pi2m2")
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Amethyst"]
+[node name="Amethyst_Button" type="Button" parent="CanvasLayer/Panel/Background/Gems/Amethyst"]
 offset_left = -10.0
 offset_top = -9.0
 offset_right = 12.0
@@ -317,3 +397,19 @@ texture = ExtResource("11_5pxak")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Background/Reset/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Gems/Diamond/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Gems/Diamond/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Background/Gems/Diamond/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Gems/Emerald/EmeraldButton" to="." method="_on_emerald_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Gems/Emerald/EmeraldButton" to="." method="_on_emerald_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Background/Gems/Emerald/EmeraldButton" to="." method="_on_emerald_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Gems/Sapphire/SapphireButton" to="." method="_on_sapphire_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Gems/Sapphire/SapphireButton" to="." method="_on_sapphire_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Background/Gems/Sapphire/SapphireButton" to="." method="_on_sapphire_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Gems/Ruby/RubyButton" to="." method="_on_ruby_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Gems/Ruby/RubyButton" to="." method="_on_ruby_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Background/Gems/Ruby/RubyButton" to="." method="_on_ruby_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Gems/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Gems/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Panel/Background/Gems/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_pressed"]
