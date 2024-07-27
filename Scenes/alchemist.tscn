@@ -192,8 +192,8 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_y23b2")
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer/Panel"]
-position = Vector2(1139, 621)
-scale = Vector2(18.5052, 11.1875)
+position = Vector2(1094, 530)
+scale = Vector2(15.638, 9.14583)
 texture = ExtResource("2_ytyaj")
 
 [node name="Combine" type="Sprite2D" parent="CanvasLayer/Panel/Background"]
@@ -657,6 +657,7 @@ offset_top = 1001.0
 offset_right = 1087.0
 offset_bottom = 1024.0
 scale = Vector2(4.66008, 4.70319)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_kwlbv")
 text = "hello"
 
