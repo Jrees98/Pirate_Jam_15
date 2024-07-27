@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=21 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="9_7ay4f"]
 [ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="10_bleom"]
 [ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="11_pp2ck"]
+[ext_resource type="AudioStream" uid="uid://o8wmrwg0cerl" path="res://Assets/sounds/home_loop.wav" id="12_6lc61"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esdka"]
 
@@ -79,6 +80,67 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_bleom")
 text = "Play Again"
 
+[node name="Tutorial" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Tutorial"]
+position = Vector2(1164, 567)
+scale = Vector2(14, 10)
+texture = ExtResource("9_7ay4f")
+
+[node name="WelcomeLabel" type="Label" parent="Tutorial/Background"]
+offset_left = -18.1429
+offset_top = -48.4
+offset_right = 125.857
+offset_bottom = -25.4
+scale = Vector2(0.68993, 1.39928)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "Tutorial"
+
+[node name="WelcomeLabel2" type="Label" parent="Tutorial/Background"]
+offset_left = -32.5
+offset_top = -29.8
+offset_right = 201.5
+offset_bottom = -6.8
+scale = Vector2(0.286485, 0.465702)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "Save your dad from his terminal illness"
+
+[node name="WelcomeLabel3" type="Label" parent="Tutorial/Background"]
+offset_left = -32.6429
+offset_top = -21.6
+offset_right = 201.357
+offset_bottom = 1.4
+scale = Vector2(0.286485, 0.465702)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "- Mine coal and gems to purchase
+  items from the shop and brew potions."
+
+[node name="WelcomeLabel5" type="Label" parent="Tutorial/Background"]
+offset_left = -32.0
+offset_top = 17.1
+offset_right = 202.0
+offset_bottom = 46.1
+scale = Vector2(0.286485, 0.465702)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "- Watch not only your health bar, but
+  your dad's too!"
+
+[node name="WelcomeLabel4" type="Label" parent="Tutorial/Background"]
+offset_left = -32.3571
+offset_top = -4.7
+offset_right = 201.643
+offset_bottom = 24.3
+scale = Vector2(0.286485, 0.465702)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "- Combine gems at the alchemy table
+  to create powerful potions to aid
+  you in your adventures."
+
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
 position = Vector2(-938, 293)
 
@@ -128,6 +190,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MiningArea"]
 position = Vector2(485.25, 160.25)
 shape = SubResource("RectangleShape2D_drd1y")
+
+[node name="IntroLoop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_6lc61")
+autoplay = true
+max_distance = 20000.0
 
 [connection signal="pressed" from="GameOver/PlayAgain/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="health_gone" from="Player" to="." method="_on_player_health_gone"]

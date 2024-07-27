@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=73 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
 [ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="11_5pxak"]
 [ext_resource type="Texture2D" uid="uid://dapy1kgvmfcq1" path="res://Assets/Pots.png" id="12_ga6ye"]
 [ext_resource type="Texture2D" uid="uid://b7vus2ece4ogd" path="res://Assets/exit.png" id="13_4ry84"]
+[ext_resource type="AudioStream" uid="uid://d3vffpkglabue" path="res://Assets/sounds/alchemy_station.wav" id="14_c24q8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
 atlas = ExtResource("1_17htp")
@@ -718,6 +719,12 @@ theme_override_fonts/font = ExtResource("7_kwlbv")
 text = "30"
 
 [node name="FearTimer" type="Timer" parent="PotionsBuff/FearPotionBuff"]
+
+[node name="AlchemyTableProximity" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_c24q8")
+volume_db = 24.0
+autoplay = true
+max_distance = 500.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
