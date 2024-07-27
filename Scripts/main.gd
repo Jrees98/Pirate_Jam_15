@@ -1,8 +1,37 @@
 extends Node2D
+var current_scene_path: String = "res://Scenes/main.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$House/VBoxContainer/DadsHealthBar.value = 100
+	Global.blue_gem_chance = 20
+	Global.emerald_chance = 20
+	Global.amethyst_chance = 20
+	Global.ruby_chance = 20
+	Global.sapphire_chance = 20
+	Global.opal_chance = 200
+	Global.coal_chance = 1
+	
+	Global.gem_price = 5
+	Global.coal_price = 2
+	
+	Global.total_coins = 0
+	
+	Global.total_gems = 0
+	Global.total_greengem = 0
+	Global.total_purplegem = 0
+	Global.total_redgem = 0
+	Global.total_whitegem = 0
+	Global.move_speed = 0
+	Global.total_coins = 0
+	
+	Global.personal_inventory_size = 0
+	Global.move_speed = 300
+	Global.mine_time = 1
+	Global.regen_energy = true
+	
+	Global.purchased_minecart = false
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +46,7 @@ func _on_wagon_wagon_entered():
 	Global.total_coal = 0
 
 func decrease_dad_health():
-	$House/VBoxContainer/DadsHealthBar.value -= 10
+	$House/VBoxContainer/DadsHealthBar.value -= 1
 
 func _on_timer_timeout():
 	if $House/VBoxContainer/DadsHealthBar.value > 0:
@@ -28,6 +57,7 @@ func _on_timer_timeout():
 
 func end_game():
 	print("Game Over")
+	$GameOver.show()
 	
 
 
@@ -54,5 +84,26 @@ func _input(event: InputEvent):
 		Global.total_purplegem = 1000
 		Global.total_redgem = 1000
 		Global.total_whitegem = 1000
-		Global.move_speed = 5000
+		Global.move_speed = 3000
 		Global.total_coins = 100000
+
+func _on_alchemist_fear_potion_drank():
+	$Player/RockNodeUI/SanityBar.value += 50
+
+
+
+func _on_alchemist_dad_health_potion():
+	$House/VBoxContainer/DadsHealthBar.value += 50
+	$Shop/ItemsUI/ProgressBar.value += 50
+
+
+func _on_alchemist_you_health_potion():
+	$Player/RockNodeUI/ProgressBar.value += 50
+
+
+func _on_player_health_gone():
+	end_game()
+
+func _on_play_again_button_pressed():
+	get_tree().reload_current_scene()
+	print("working")

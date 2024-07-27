@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=20 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -8,6 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://ot2mpv1d6pvq" path="res://Scenes/shop.tscn" id="6_tlerc"]
 [ext_resource type="PackedScene" uid="uid://cn65df43la0dm" path="res://Scenes/alchemist.tscn" id="7_r5ovd"]
 [ext_resource type="Texture2D" uid="uid://d0g2af01u8a53" path="res://Assets/Untitled 17.png" id="8_mj3ho"]
+[ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="9_7ay4f"]
+[ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="10_bleom"]
+[ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="11_pp2ck"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esdka"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghgal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61ib4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6x77s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8352"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0lol"]
 bg_color = Color(0.964706, 0, 0, 1)
@@ -21,6 +34,50 @@ size = Vector2(2691.5, 393.5)
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="Panel" type="Sprite2D" parent="GameOver"]
+position = Vector2(1125, 653)
+scale = Vector2(24.4271, 14.3333)
+texture = ExtResource("9_7ay4f")
+
+[node name="Label" type="Label" parent="GameOver"]
+offset_left = 456.0
+offset_top = 23.0
+offset_right = 528.0
+offset_bottom = 46.0
+scale = Vector2(20.043, 12.1265)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "Game Over..."
+
+[node name="PlayAgain" type="Sprite2D" parent="GameOver"]
+position = Vector2(1043, 956)
+scale = Vector2(36.3281, 14.125)
+texture = ExtResource("11_pp2ck")
+
+[node name="PlayAgainButton" type="Button" parent="GameOver/PlayAgain"]
+offset_left = -15.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_esdka")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ghgal")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_61ib4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6x77s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f8352")
+
+[node name="Label" type="Label" parent="GameOver/PlayAgain"]
+offset_left = -12.2495
+offset_top = -12.3186
+offset_right = 47.7505
+offset_bottom = 10.6814
+scale = Vector2(0.385682, 1.30654)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "Play Again"
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
 position = Vector2(-4957, 300)
@@ -72,9 +129,14 @@ collision_mask = 2
 position = Vector2(485.25, 160.25)
 shape = SubResource("RectangleShape2D_drd1y")
 
+[connection signal="pressed" from="GameOver/PlayAgain/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="health_gone" from="Player" to="." method="_on_player_health_gone"]
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
 [connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
 [connection signal="stop_timer_dad" from="Shop" to="." method="_on_shop_stop_timer_dad"]
+[connection signal="dad_health_potion" from="Alchemist" to="." method="_on_alchemist_dad_health_potion"]
+[connection signal="fear_potion_drank" from="Alchemist" to="." method="_on_alchemist_fear_potion_drank"]
+[connection signal="you_health_potion" from="Alchemist" to="." method="_on_alchemist_you_health_potion"]
 [connection signal="timeout" from="House/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="MiningArea" to="." method="_on_mining_area_body_entered"]
 [connection signal="body_exited" from="MiningArea" to="." method="_on_mining_area_body_exited"]

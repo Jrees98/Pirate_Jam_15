@@ -69,7 +69,6 @@ func _on_lose_energy_timeout():
 	$RockNodeUI/SanityBar.value -= 10
 	if current_sanity <= 0:
 		$RockNodeUI/ProgressBar.value -= 10
-	print($RockNodeUI/SanityBar.value)
 
 
 var show_inventory = false
@@ -80,3 +79,9 @@ func _on_gems_toggle_button_pressed():
 	else:
 		$RockNodeUI/HBoxContainer.hide()
 		show_inventory = false
+
+signal health_gone
+func _on_health_tracker_timeout():
+	if $RockNodeUI/ProgressBar.value < 1:
+		health_gone.emit()
+		$Health_tracker.stop()

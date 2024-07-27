@@ -32,6 +32,7 @@ func _process(delta):
 	if slot_1_full and slot_2_full and slot_3_full:
 		all_slots_full = true
 	$PotionsUI/LuckPotion/LuckPotionQuantity.text = str(total_luck_potions)
+	$PotionsUI/HealthPotion/HealthPotionQuantity.text = str(total_health_potions)
 
 func reload_table():
 	$CanvasLayer/Panel/Background/Slot1/Diamond.hide()
@@ -305,10 +306,6 @@ func _on_luck_timer_timeout():
 
 #### MINING POTION
 
-
-
-
-
 func _on_mining_potion_button_mouse_entered():
 	$PotionsUI/MiningPotion/MiningPotionSelector.show()
 
@@ -316,7 +313,7 @@ func _on_mining_potion_button_mouse_entered():
 func _on_mining_potion_button_mouse_exited():
 	$PotionsUI/MiningPotion/MiningPotionSelector.hide()
 
-var mining_timer_value := 30
+var mining_timer_value := 15
 func _on_mining_potion_button_pressed():
 	if total_mining_potions > 0:
 		total_mining_potions -= 1
@@ -324,7 +321,7 @@ func _on_mining_potion_button_pressed():
 		Global.mine_time = Global.mine_time / 5
 		$PotionsUI/MiningPotion/MiningBuffTimer.start()
 		$PotionsBuff/MiningPotionBuff.show()
-		mining_timer_value = 30
+		mining_timer_value = 15
 		$PotionsBuff/MiningPotionBuff/MiningTimer.start()
 		$PotionsBuff/MiningPotionBuff/MiningCountDown.text = str(mining_timer_value)
 
@@ -340,3 +337,54 @@ func _on_mining_buff_timer_timeout():
 func _on_mining_timer_timeout():
 	mining_timer_value -= 1
 	$PotionsBuff/MiningPotionBuff/MiningCountDown.text = str(mining_timer_value)
+	
+	
+### FEAR POTION
+
+func _on_fear_potion_button_mouse_entered():
+	$PotionsUI/FearPotion/FearPotionSelector.show()
+
+
+func _on_fear_potion_button_mouse_exited():
+	$PotionsUI/FearPotion/FearPotionSelector.hide()
+
+signal fear_potion_drank
+func _on_fear_potion_button_pressed():
+	if total_fear_potions > 0:
+		fear_potion_drank.emit()
+		total_fear_potions -= 1
+		$PotionsUI/FearPotion/FearPotionQuantity.text = str(total_fear_potions)
+		
+
+### HEALTH POTION
+
+
+
+func _on_health_potion_button_mouse_entered():
+	$PotionsUI/HealthPotion/HealthPotionSelector.show()
+
+
+func _on_health_potion_button_mouse_exited():
+	$PotionsUI/HealthPotion/HealthPotionSelector.hide()
+
+signal dad_health_potion
+signal you_health_potion
+func _on_health_potion_button_pressed():
+	if total_health_potions > 0:
+		$PotionsUI/HealthPotion/UseOnWho.show()
+
+
+func _on_exitbutton_pressed():
+	$PotionsUI/HealthPotion/UseOnWho.hide()
+
+
+func _on_dad_button_pressed():
+	dad_health_potion.emit()
+	$PotionsUI/HealthPotion/UseOnWho.hide()
+	total_health_potions -= 1
+
+
+func _on_you_button_pressed():
+	you_health_potion.emit()
+	$PotionsUI/HealthPotion/UseOnWho.hide()
+	total_health_potions -= 1

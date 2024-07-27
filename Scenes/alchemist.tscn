@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=72 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
 [ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://s4ufnhdi0b5q" path="res://Assets/Untitled 19.png" id="10_pi2m2"]
 [ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="11_5pxak"]
 [ext_resource type="Texture2D" uid="uid://dapy1kgvmfcq1" path="res://Assets/Pots.png" id="12_ga6ye"]
+[ext_resource type="Texture2D" uid="uid://b7vus2ece4ogd" path="res://Assets/exit.png" id="13_4ry84"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
 atlas = ExtResource("1_17htp")
@@ -130,6 +131,36 @@ size = Vector2(57.5, 42)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofxoj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wwsf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqqh5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqolh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0kun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xg7g8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mhgs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgo5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2oxbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_siieo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8jb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnbob"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cpwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1vl3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rpdh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5l28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju6nt"]
 
 [node name="Alchemist" type="Area2D"]
 collision_layer = 0
@@ -439,6 +470,87 @@ offset_bottom = 18.8
 theme_override_fonts/font = ExtResource("7_kwlbv")
 text = "0"
 
+[node name="UseOnWho" type="Sprite2D" parent="PotionsUI/HealthPotion"]
+visible = false
+position = Vector2(-0.199999, -48.2)
+scale = Vector2(1.23958, 0.479167)
+texture = ExtResource("2_ytyaj")
+
+[node name="TitleLabel" type="Label" parent="PotionsUI/HealthPotion/UseOnWho"]
+offset_left = -45.8219
+offset_top = -50.087
+offset_right = 92.1781
+offset_bottom = -21.087
+scale = Vector2(0.656169, 2.39797)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "Use Health Potion on..."
+
+[node name="You" type="Sprite2D" parent="PotionsUI/HealthPotion/UseOnWho"]
+position = Vector2(-22.2655, 14.1913)
+scale = Vector2(1.16975, 1.89565)
+texture = ExtResource("6_0huyd")
+
+[node name="YouLabel" type="Label" parent="PotionsUI/HealthPotion/UseOnWho/You"]
+offset_left = -9.7931
+offset_top = -9.24771
+offset_right = 30.2069
+offset_bottom = 13.7523
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "You"
+
+[node name="YouButton" type="Button" parent="PotionsUI/HealthPotion/UseOnWho/You"]
+offset_left = -15.0
+offset_top = -14.0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vqqh5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_aqolh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o0kun")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xg7g8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8mhgs")
+
+[node name="Dad" type="Sprite2D" parent="PotionsUI/HealthPotion/UseOnWho"]
+position = Vector2(23.0723, 14.1913)
+scale = Vector2(1.16975, 1.89565)
+texture = ExtResource("6_0huyd")
+
+[node name="DadLabel" type="Label" parent="PotionsUI/HealthPotion/UseOnWho/Dad"]
+offset_left = -10.069
+offset_top = -9.68808
+offset_right = 29.931
+offset_bottom = 13.3119
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "Dad"
+
+[node name="DadButton" type="Button" parent="PotionsUI/HealthPotion/UseOnWho/Dad"]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wgo5l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2oxbq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_siieo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d8jb5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dnbob")
+
+[node name="exit" type="Sprite2D" parent="PotionsUI/HealthPotion/UseOnWho"]
+position = Vector2(42.9177, -37.9826)
+scale = Vector2(0.295168, 0.636957)
+texture = ExtResource("13_4ry84")
+
+[node name="exitbutton" type="Button" parent="PotionsUI/HealthPotion/UseOnWho/exit"]
+offset_left = -11.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 10.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6cpwe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v1vl3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8rpdh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k5l28")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ju6nt")
+
 [node name="MiningPotion" type="Sprite2D" parent="PotionsUI"]
 position = Vector2(1084, 1195)
 scale = Vector2(5, 5)
@@ -577,6 +689,25 @@ text = "30"
 
 [node name="MiningTimer" type="Timer" parent="PotionsBuff/MiningPotionBuff"]
 
+[node name="FearPotionBuff" type="Sprite2D" parent="PotionsBuff"]
+visible = false
+position = Vector2(2206, 732)
+scale = Vector2(3, 3)
+texture = ExtResource("12_ga6ye")
+hframes = 5
+frame = 4
+
+[node name="FearCountDown" type="Label" parent="PotionsBuff/FearPotionBuff"]
+offset_left = -6.33333
+offset_top = -32.0
+offset_right = 33.6667
+offset_bottom = -9.00001
+scale = Vector2(1.3723, 1.24365)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "30"
+
+[node name="FearTimer" type="Timer" parent="PotionsBuff/FearPotionBuff"]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Background/Combine/CombineButton" to="." method="_on_combine_button_pressed"]
@@ -596,6 +727,12 @@ text = "30"
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Background/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Panel/Background/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/Background/Amethyst/Amethyst_Button" to="." method="_on_amethyst_button_pressed"]
+[connection signal="mouse_entered" from="PotionsUI/HealthPotion/HealthPotionButton" to="." method="_on_health_potion_button_mouse_entered"]
+[connection signal="mouse_exited" from="PotionsUI/HealthPotion/HealthPotionButton" to="." method="_on_health_potion_button_mouse_exited"]
+[connection signal="pressed" from="PotionsUI/HealthPotion/HealthPotionButton" to="." method="_on_health_potion_button_pressed"]
+[connection signal="pressed" from="PotionsUI/HealthPotion/UseOnWho/You/YouButton" to="." method="_on_you_button_pressed"]
+[connection signal="pressed" from="PotionsUI/HealthPotion/UseOnWho/Dad/DadButton" to="." method="_on_dad_button_pressed"]
+[connection signal="pressed" from="PotionsUI/HealthPotion/UseOnWho/exit/exitbutton" to="." method="_on_exitbutton_pressed"]
 [connection signal="mouse_entered" from="PotionsUI/MiningPotion/MiningPotionButton" to="." method="_on_mining_potion_button_mouse_entered"]
 [connection signal="mouse_exited" from="PotionsUI/MiningPotion/MiningPotionButton" to="." method="_on_mining_potion_button_mouse_exited"]
 [connection signal="pressed" from="PotionsUI/MiningPotion/MiningPotionButton" to="." method="_on_mining_potion_button_pressed"]
@@ -604,5 +741,9 @@ text = "30"
 [connection signal="mouse_exited" from="PotionsUI/LuckPotion/LuckPotionButton" to="." method="_on_luck_potion_button_mouse_exited"]
 [connection signal="pressed" from="PotionsUI/LuckPotion/LuckPotionButton" to="." method="_on_luck_potion_button_pressed"]
 [connection signal="timeout" from="PotionsUI/LuckPotion/LuckTimer" to="." method="_on_luck_timer_timeout"]
+[connection signal="mouse_entered" from="PotionsUI/FearPotion/FearPotionButton" to="." method="_on_fear_potion_button_mouse_entered"]
+[connection signal="mouse_exited" from="PotionsUI/FearPotion/FearPotionButton" to="." method="_on_fear_potion_button_mouse_exited"]
+[connection signal="pressed" from="PotionsUI/FearPotion/FearPotionButton" to="." method="_on_fear_potion_button_pressed"]
 [connection signal="timeout" from="PotionsBuff/LuckyPotionBuff/LuckyTimer" to="." method="_on_lucky_timer_timeout"]
 [connection signal="timeout" from="PotionsBuff/MiningPotionBuff/MiningTimer" to="." method="_on_mining_timer_timeout"]
+[connection signal="timeout" from="PotionsBuff/FearPotionBuff/FearTimer" to="." method="_on_mining_timer_timeout"]

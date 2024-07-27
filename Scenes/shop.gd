@@ -210,7 +210,7 @@ func _on_mirror_pressed():
 	
 
 func _on_timer_timeout():
-	$ItemsUI/ProgressBar.value -= 10
+	$ItemsUI/ProgressBar.value -= 1
 ################## MIRROR BUTTON END ######################
 
 
