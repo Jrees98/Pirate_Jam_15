@@ -271,7 +271,7 @@ func _on_combine_button_pressed():
 
 
 
-
+### LUCKY POTION
 
 func _on_luck_potion_button_mouse_entered():
 	$PotionsUI/LuckPotion/LuckPotionSelector.show()
@@ -303,6 +303,40 @@ func _on_luck_timer_timeout():
 	Global.luck_potion_active = false
 
 
+#### MINING POTION
 
 
 
+
+
+func _on_mining_potion_button_mouse_entered():
+	$PotionsUI/MiningPotion/MiningPotionSelector.show()
+
+
+func _on_mining_potion_button_mouse_exited():
+	$PotionsUI/MiningPotion/MiningPotionSelector.hide()
+
+var mining_timer_value := 30
+func _on_mining_potion_button_pressed():
+	if total_mining_potions > 0:
+		total_mining_potions -= 1
+		$PotionsUI/MiningPotion/MiningPotionQuantity.text = str(total_mining_potions)
+		Global.mine_time = Global.mine_time / 5
+		$PotionsUI/MiningPotion/MiningBuffTimer.start()
+		$PotionsBuff/MiningPotionBuff.show()
+		mining_timer_value = 30
+		$PotionsBuff/MiningPotionBuff/MiningTimer.start()
+		$PotionsBuff/MiningPotionBuff/MiningCountDown.text = str(mining_timer_value)
+
+
+
+func _on_mining_buff_timer_timeout():
+	$PotionsUI/MiningPotion/MiningBuffTimer.stop()
+	$PotionsBuff/MiningPotionBuff/MiningTimer.stop()
+	Global.mine_time = Global.mine_time * 5
+	$PotionsBuff/MiningPotionBuff.hide()
+
+
+func _on_mining_timer_timeout():
+	mining_timer_value -= 1
+	$PotionsBuff/MiningPotionBuff/MiningCountDown.text = str(mining_timer_value)
