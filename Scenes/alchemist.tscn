@@ -583,7 +583,7 @@ text = "0
 "
 
 [node name="MiningBuffTimer" type="Timer" parent="PotionsUI/MiningPotion"]
-wait_time = 30.0
+wait_time = 15.0
 
 [node name="LuckPotion" type="Sprite2D" parent="PotionsUI"]
 position = Vector2(1384, 1195)
@@ -649,6 +649,16 @@ offset_right = 37.4
 offset_bottom = 19.4
 theme_override_fonts/font = ExtResource("7_kwlbv")
 text = "0"
+
+[node name="ToolTip" type="Label" parent="PotionsUI"]
+visible = false
+offset_left = 1047.0
+offset_top = 1001.0
+offset_right = 1087.0
+offset_bottom = 1024.0
+scale = Vector2(4.66008, 4.70319)
+theme_override_fonts/font = ExtResource("7_kwlbv")
+text = "hello"
 
 [node name="PotionsBuff" type="CanvasLayer" parent="."]
 

@@ -21,15 +21,17 @@ var pickaxeIBought : bool
 var pickaxeIIBought : bool
 
 var lantern_cost := 500
-var minecart_cost := 1000
-var mirror_cost := 200
+var minecart_cost := 3000
+var mirror_cost := 1000
+var cure_cost := 25
 
 signal stop_timer_dad
 func _ready():
 	backpackIBought = false
 	backpackIIBought = false
 	backpackIIIBought = false
-	$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack I"
+	$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Cure"
+	$CanvasLayer/Panel/Backpack1/BackpackPrice.text = str(cure_cost)
 	$CanvasLayer/Panel/Boots/BootsPrice.text = str(bootsI_cost) + "g"
 	$CanvasLayer/Panel/Pickaxe/PickaxePrice.text = str(pickaxeI_cost) + "g"
 	$CanvasLayer/Panel/Lantern/LanternPrice.text = str(lantern_cost) + "g"
@@ -54,28 +56,8 @@ func _on_backpack_1_mouse_exited():
 
 
 func _on_backpack_1_pressed():
-	if backpackIIBought:
-		if Global.total_coins >= backpackIII_cost:
-			Global.total_coins = Global.total_coins - backpackIII_cost
-			$CanvasLayer/Panel/Backpack1.queue_free()
-			Global.personal_inventory_size = 50
-			$ItemsUI/Panel/PersonalBackpack/Label.text = "III"
-	elif backpackIBought:
-		if Global.total_coins >= backpackII_cost:
-			$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack III"
-			Global.personal_inventory_size = 30
-			Global.total_coins = Global.total_coins - backpackII_cost
-			backpackIIBought = true
-			$CanvasLayer/Panel/Backpack1/BackpackPrice.text = str(backpackIII_cost) + "g"
-			$ItemsUI/Panel/PersonalBackpack/Label.text = "II"
-	else:
-		if Global.total_coins >= backpackI_cost:
-			$CanvasLayer/Panel/Backpack1/BackpackLabel.text = "Backpack II"
-			Global.personal_inventory_size = 10
-			Global.total_coins = Global.total_coins - backpackI_cost
-			backpackIBought = true
-			$CanvasLayer/Panel/Backpack1/BackpackPrice.text = str(backpackII_cost) + "g"
-			$ItemsUI/Panel/PersonalBackpack.show()
+	if Global.total_opals >= 25:
+		print("You Win!!!!!")
 
 ################## BACKPACK BUTTON END ######################
 

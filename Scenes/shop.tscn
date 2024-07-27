@@ -460,6 +460,7 @@ rotation = 1.5708
 scale = Vector2(10, 10)
 theme_override_styles/background = SubResource("StyleBoxFlat_fylq2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3mr2t")
+max_value = 600.0
 fill_mode = 3
 show_percentage = false
 

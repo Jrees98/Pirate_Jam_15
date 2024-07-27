@@ -276,10 +276,12 @@ func _on_combine_button_pressed():
 
 func _on_luck_potion_button_mouse_entered():
 	$PotionsUI/LuckPotion/LuckPotionSelector.show()
-
+	$PotionsUI/ToolTip.show()
+	$PotionsUI/ToolTip.text = "Luck Potion"
 
 func _on_luck_potion_button_mouse_exited():
 	$PotionsUI/LuckPotion/LuckPotionSelector.hide()
+	$PotionsUI/ToolTip.show().hide()
 
 var lucky_countdown_timer_value := 30
 func _on_luck_potion_button_pressed():
@@ -308,14 +310,17 @@ func _on_luck_timer_timeout():
 
 func _on_mining_potion_button_mouse_entered():
 	$PotionsUI/MiningPotion/MiningPotionSelector.show()
+	$PotionsUI/ToolTip.show()
+	$PotionsUI/ToolTip.text = "Mining Potion"
 
 
 func _on_mining_potion_button_mouse_exited():
 	$PotionsUI/MiningPotion/MiningPotionSelector.hide()
-
+	$PotionsUI/ToolTip.hide()
+var mining_potion_active = false
 var mining_timer_value := 15
 func _on_mining_potion_button_pressed():
-	if total_mining_potions > 0:
+	if total_mining_potions > 0 and not mining_potion_active:
 		total_mining_potions -= 1
 		$PotionsUI/MiningPotion/MiningPotionQuantity.text = str(total_mining_potions)
 		Global.mine_time = Global.mine_time / 5
@@ -324,6 +329,7 @@ func _on_mining_potion_button_pressed():
 		mining_timer_value = 15
 		$PotionsBuff/MiningPotionBuff/MiningTimer.start()
 		$PotionsBuff/MiningPotionBuff/MiningCountDown.text = str(mining_timer_value)
+		mining_potion_active = true
 
 
 
@@ -332,6 +338,7 @@ func _on_mining_buff_timer_timeout():
 	$PotionsBuff/MiningPotionBuff/MiningTimer.stop()
 	Global.mine_time = Global.mine_time * 5
 	$PotionsBuff/MiningPotionBuff.hide()
+	mining_potion_active = false
 
 
 func _on_mining_timer_timeout():
@@ -343,10 +350,12 @@ func _on_mining_timer_timeout():
 
 func _on_fear_potion_button_mouse_entered():
 	$PotionsUI/FearPotion/FearPotionSelector.show()
-
+	$PotionsUI/ToolTip.show()
+	$PotionsUI/ToolTip.text = "Fear Potion"
 
 func _on_fear_potion_button_mouse_exited():
 	$PotionsUI/FearPotion/FearPotionSelector.hide()
+	$PotionsUI/ToolTip.hide()
 
 signal fear_potion_drank
 func _on_fear_potion_button_pressed():
@@ -362,10 +371,13 @@ func _on_fear_potion_button_pressed():
 
 func _on_health_potion_button_mouse_entered():
 	$PotionsUI/HealthPotion/HealthPotionSelector.show()
+	$PotionsUI/ToolTip.show()
+	$PotionsUI/ToolTip.text = "Health Potion"
 
 
 func _on_health_potion_button_mouse_exited():
 	$PotionsUI/HealthPotion/HealthPotionSelector.hide()
+	$PotionsUI/ToolTip.hide()
 
 signal dad_health_potion
 signal you_health_potion

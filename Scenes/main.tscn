@@ -80,7 +80,7 @@ theme_override_fonts/font = ExtResource("10_bleom")
 text = "Play Again"
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-4957, 300)
+position = Vector2(-5756, 299)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
@@ -115,7 +115,7 @@ custom_minimum_size = Vector2(15, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_b0lol")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kjx02")
-value = 50.0
+max_value = 600.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="House"]

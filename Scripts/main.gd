@@ -3,13 +3,13 @@ var current_scene_path: String = "res://Scenes/main.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$House/VBoxContainer/DadsHealthBar.value = 100
-	Global.blue_gem_chance = 20
-	Global.emerald_chance = 20
-	Global.amethyst_chance = 20
-	Global.ruby_chance = 20
-	Global.sapphire_chance = 20
-	Global.opal_chance = 200
+	$House/VBoxContainer/DadsHealthBar.value = 600
+	Global.blue_gem_chance = 30
+	Global.emerald_chance = 30
+	Global.amethyst_chance = 30
+	Global.ruby_chance = 30
+	Global.sapphire_chance = 30
+	Global.opal_chance = 50
 	Global.coal_chance = 1
 	
 	Global.gem_price = 5
@@ -31,6 +31,7 @@ func _ready():
 	Global.regen_energy = true
 	
 	Global.purchased_minecart = false
+	print($House/VBoxContainer/DadsHealthBar.value)
 
 
 
@@ -47,6 +48,7 @@ func _on_wagon_wagon_entered():
 
 func decrease_dad_health():
 	$House/VBoxContainer/DadsHealthBar.value -= 1
+	Global.dads_health = $House/VBoxContainer/DadsHealthBar.value
 
 func _on_timer_timeout():
 	if $House/VBoxContainer/DadsHealthBar.value > 0:

@@ -8,6 +8,8 @@ func _ready():
 	$RockNodeUI/Coins.text = "$ " + str(Global.total_coins)
 	speed = Global.move_speed
 	in_minecart = false
+	$RockNodeUI/ProgressBar.value = 100
+	$RockNodeUI/SanityBar.value = 100
 	
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left","move_right")
@@ -66,7 +68,7 @@ func _on_regain_energy_timeout():
 
 func _on_lose_energy_timeout():
 	var current_sanity = $RockNodeUI/SanityBar.value
-	$RockNodeUI/SanityBar.value -= 10
+	$RockNodeUI/SanityBar.value -= 5
 	if current_sanity <= 0:
 		$RockNodeUI/ProgressBar.value -= 10
 

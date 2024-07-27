@@ -54,7 +54,7 @@ func gem_chance():
 	var purpleNumber = rng.randi_range(1, Global.amethyst_chance)
 	var redNumber = rng.randi_range(1, Global.ruby_chance)
 	var whiteNumber = rng.randi_range(1, Global.sapphire_chance)
-	var opalNumber = rng.randi_range(1, 10)
+	var opalNumber = rng.randi_range(1, Global.opal_chance)
 	
 	if number == 1:
 		Global.total_gems +=1
