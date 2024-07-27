@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://0v7jd01x8glb"]
+[gd_scene load_steps=36 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
 [ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
 [ext_resource type="Texture2D" uid="uid://erbgsdcl3u8a" path="res://Assets/minecart.png" id="3_g64g8"]
 [ext_resource type="Texture2D" uid="uid://ca0h5cevk42j2" path="res://Assets/coal.png" id="3_ligsf"]
-[ext_resource type="Texture2D" uid="uid://j28m3o15p3kr" path="res://Assets/Miner 2.png" id="4_b7qrj"]
+[ext_resource type="Texture2D" uid="uid://2bsyp0ycns20" path="res://Assets/Miner 3.png" id="4_bgdhf"]
+[ext_resource type="Texture2D" uid="uid://bp8k1laskjo7k" path="res://Assets/Miner mining.png" id="4_imsym"]
 [ext_resource type="Texture2D" uid="uid://bv3x5wicyrss5" path="res://Assets/gems.png" id="4_njvkg"]
 [ext_resource type="FontFile" uid="uid://b2k23t8adqnf7" path="res://Assets/monogram.ttf" id="5_nfwr5"]
 [ext_resource type="Texture2D" uid="uid://bfpoipcw1glka" path="res://Assets/Untitled 15.png" id="8_xhd1y"]
@@ -14,25 +15,49 @@
 [ext_resource type="Texture2D" uid="uid://hryl0q3e7hr6" path="res://Assets/opal.png" id="12_ht1iw"]
 [ext_resource type="Texture2D" uid="uid://46wyfoxca4u0" path="res://Assets/backpack.png" id="13_f76i6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qdtek"]
-atlas = ExtResource("4_b7qrj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2utf6"]
+atlas = ExtResource("4_imsym")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12rsq"]
-atlas = ExtResource("4_b7qrj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvrc6"]
+atlas = ExtResource("4_imsym")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s011i"]
-atlas = ExtResource("4_b7qrj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rq74"]
+atlas = ExtResource("4_imsym")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ut856"]
-atlas = ExtResource("4_b7qrj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8fql"]
+atlas = ExtResource("4_imsym")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_erdap"]
-atlas = ExtResource("4_b7qrj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekluv"]
+atlas = ExtResource("4_bgdhf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d54tm"]
+atlas = ExtResource("4_bgdhf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2jju"]
+atlas = ExtResource("4_bgdhf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t227h"]
+atlas = ExtResource("4_bgdhf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjgns"]
+atlas = ExtResource("4_bgdhf")
 region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0uq6"]
+atlas = ExtResource("4_bgdhf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6hty"]
+atlas = ExtResource("4_bgdhf")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lmb3k"]
 animations = [{
@@ -54,19 +79,42 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qdtek")
+"texture": SubResource("AtlasTexture_2utf6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12rsq")
+"texture": SubResource("AtlasTexture_kvrc6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s011i")
+"texture": SubResource("AtlasTexture_0rq74")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ut856")
+"texture": SubResource("AtlasTexture_m8fql")
+}],
+"loop": true,
+"name": &"mining",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekluv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_erdap")
+"texture": SubResource("AtlasTexture_d54tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2jju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t227h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjgns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0uq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6hty")
 }],
 "loop": true,
 "name": &"walk",
@@ -104,8 +152,10 @@ script = ExtResource("1_gr4sc")
 z_index = 3
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lmb3k")
+animation = &"mining"
 autoplay = "default"
-frame_progress = 0.293101
+frame = 3
+frame_progress = 0.572702
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
