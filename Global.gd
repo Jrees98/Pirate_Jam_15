@@ -31,25 +31,26 @@ var dads_health : int
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	blue_gem_chance = 20
-	emerald_chance = 20
-	amethyst_chance = 20
-	ruby_chance = 20
-	sapphire_chance = 20
-	opal_chance = 200
-	coal_chance = 1
-	
-	gem_price = 5
-	coal_price = 2
-	
-	total_coins = 0
-	
-	personal_inventory_size = 0
-	move_speed = 300
-	mine_time = 1
-	regen_energy = true
-	
-	purchased_minecart = false
+	#blue_gem_chance = 20
+	#emerald_chance = 20
+	#amethyst_chance = 20
+	#ruby_chance = 20
+	#sapphire_chance = 20
+	#opal_chance = 200
+	#coal_chance = 1
+	#
+	#gem_price = 5
+	#coal_price = 2
+	#
+	#total_coins = 0
+	#
+	#personal_inventory_size = 0
+	#move_speed = 300
+	#mine_time = 1
+	#regen_energy = true
+	#
+	#purchased_minecart = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -22,6 +22,7 @@ func _ready():
 	Global.total_purplegem = 0
 	Global.total_redgem = 0
 	Global.total_whitegem = 0
+	Global.total_opals = 0
 	Global.move_speed = 0
 	Global.total_coins = 0
 	

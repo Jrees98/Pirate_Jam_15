@@ -115,7 +115,7 @@ custom_minimum_size = Vector2(15, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_b0lol")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kjx02")
-max_value = 600.0
+max_value = 450.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="House"]

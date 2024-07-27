@@ -8,8 +8,8 @@ var backpackIIBought : bool
 var backpackIIIBought : bool
 
 var bootsI_cost := 50
-var bootsII_cost := 200
-var bootsIII_cost := 500
+var bootsII_cost := 150
+var bootsIII_cost := 300
 var bootsIBought : bool
 var bootsIIBought : bool
 var bootsIIIBought : bool
@@ -21,8 +21,8 @@ var pickaxeIBought : bool
 var pickaxeIIBought : bool
 
 var lantern_cost := 500
-var minecart_cost := 3000
-var mirror_cost := 1000
+var minecart_cost := 1000
+var mirror_cost := 250
 var cure_cost := 25
 
 signal stop_timer_dad
@@ -72,13 +72,13 @@ func _on_boots_mouse_exited():
 func _on_boots_pressed():
 	if bootsIIBought:
 		if Global.total_coins >= bootsIII_cost:
-			Global.move_speed = 1500
+			Global.move_speed = 1000
 			$CanvasLayer/Panel/Boots.queue_free()
 			Global.total_coins = Global.total_coins - bootsIII_cost
 			$ItemsUI/Panel/Boots/Label.text = "III"
 	elif bootsIBought:
 		if Global.total_coins >= bootsII_cost:
-			Global.move_speed = 800
+			Global.move_speed = 700
 			Global.total_coins = Global.total_coins - bootsII_cost
 			$CanvasLayer/Panel/Boots/BootsLabel.text = "Boots III"
 			bootsIIBought = true
@@ -86,7 +86,7 @@ func _on_boots_pressed():
 			$ItemsUI/Panel/Boots/Label.text = "II"
 	else:
 		if Global.total_coins >= bootsI_cost:
-			Global.move_speed = 500
+			Global.move_speed = 425
 			Global.total_coins = Global.total_coins - bootsI_cost
 			$CanvasLayer/Panel/Boots/BootsLabel.text = "Boots II"
 			$CanvasLayer/Panel/Boots/BootsPrice.text = str(bootsII_cost) + "g"

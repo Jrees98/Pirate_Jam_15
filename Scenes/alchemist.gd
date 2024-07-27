@@ -17,7 +17,7 @@ var total_fear_potions : int
 
 var potion_recipes = {
 	"Health Potion": "Diamond Emerald Ruby",
-	"Mining Potion": "Diamond Ruby Sapphire",
+	"Mining Potion": "Amethyst Diamond Sapphire",
 	"Luck Potion": "Amethyst Diamond Ruby",
 	"Fear Potion": "Emerald Ruby Sapphire"
 }
@@ -281,7 +281,7 @@ func _on_luck_potion_button_mouse_entered():
 
 func _on_luck_potion_button_mouse_exited():
 	$PotionsUI/LuckPotion/LuckPotionSelector.hide()
-	$PotionsUI/ToolTip.show().hide()
+	$PotionsUI/ToolTip.hide()
 
 var lucky_countdown_timer_value := 30
 func _on_luck_potion_button_pressed():
