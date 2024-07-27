@@ -80,7 +80,7 @@ theme_override_fonts/font = ExtResource("10_bleom")
 text = "Play Again"
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-5756, 299)
+position = Vector2(-938, 293)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(-91, 281)
