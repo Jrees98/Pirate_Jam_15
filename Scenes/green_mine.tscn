@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c87kp60mhac4i"]
 
-[ext_resource type="Script" path="res://Scenes/green_mine.gd" id="1_0jhph"]
+[ext_resource type="Script" path="res://Scripts/green_mine.gd" id="1_0jhph"]
 [ext_resource type="PackedScene" uid="uid://deriguf4uwt0b" path="res://Scenes/tile_map.tscn" id="1_hx4do"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_w81ck"]
 [ext_resource type="PackedScene" uid="uid://djx5id5hn8f00" path="res://Scenes/mining_node.tscn" id="3_1adf5"]

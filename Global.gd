@@ -1,4 +1,7 @@
 extends Node
+
+var sanity_bar_amount
+
 var total_coal : int
 var total_gems : int
 var total_coins : int

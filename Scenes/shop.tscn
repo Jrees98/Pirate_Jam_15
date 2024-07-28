@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://ot2mpv1d6pvq"]
+[gd_scene load_steps=27 format=3 uid="uid://ot2mpv1d6pvq"]
 
 [ext_resource type="Texture2D" uid="uid://bdta6gtirqse" path="res://Assets/Shop.png" id="1_72fx0"]
-[ext_resource type="Script" path="res://Scenes/shop.gd" id="1_qoqpp"]
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_xnkm6"]
 [ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="3_7fnxc"]
 [ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="4_4b0lm"]
 [ext_resource type="Texture2D" uid="uid://dfso8pcd2fm5q" path="res://Assets/UI_Flat_Select_01a2.png" id="5_yl5sc"]
@@ -38,10 +38,19 @@ bg_color = Color(0.964706, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mr2t"]
 bg_color = Color(0.411765, 0.772549, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_0w4b5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cua35"]
+gradient = SubResource("Gradient_0w4b5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.864679, 0.126147)
+
 [node name="Shop" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_qoqpp")
+script = ExtResource("1_xnkm6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_72fx0")
@@ -475,6 +484,11 @@ offset_bottom = 63.0
 scale = Vector2(2.33594, 4.97126)
 theme_override_fonts/font = ExtResource("7_52eks")
 text = "Dad's Health bar"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-13, 25)
+color = Color(1, 0.760784, 0.309804, 1)
+texture = SubResource("GradientTexture2D_cua35")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

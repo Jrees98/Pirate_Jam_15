@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=29 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
 [ext_resource type="PackedScene" uid="uid://djx5id5hn8f00" path="res://Scenes/mining_node.tscn" id="4_c3t3l"]
 [ext_resource type="PackedScene" uid="uid://deriguf4uwt0b" path="res://Scenes/tile_map.tscn" id="4_qtfcr"]
+[ext_resource type="Texture2D" uid="uid://dxw4ehiic2cl7" path="res://Assets/arrow.png" id="5_nnsup"]
 [ext_resource type="PackedScene" uid="uid://mgsbjpqmcp7e" path="res://Scenes/wagon.tscn" id="5_xqjqi"]
 [ext_resource type="PackedScene" uid="uid://ot2mpv1d6pvq" path="res://Scenes/shop.tscn" id="6_tlerc"]
 [ext_resource type="PackedScene" uid="uid://cn65df43la0dm" path="res://Scenes/alchemist.tscn" id="7_r5ovd"]
@@ -23,6 +24,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8352"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jkri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucj2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0pifr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo2wa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo874"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0lol"]
 bg_color = Color(0.964706, 0, 0, 1)
 
@@ -30,14 +41,22 @@ bg_color = Color(0.964706, 0, 0, 1)
 bg_color = Color(0.411765, 0.772549, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drd1y"]
-size = Vector2(2691.5, 393.5)
+size = Vector2(5935.5, 393.5)
+
+[sub_resource type="Gradient" id="Gradient_sbmv4"]
+offsets = PackedFloat32Array(0, 0.720779)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uo2ff"]
+gradient = SubResource("Gradient_sbmv4")
+width = 6000
+height = 500
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_q3ypa")
 
 [node name="GameOver" type="CanvasLayer" parent="."]
-process_mode = 3
+process_mode = 2
 visible = false
 
 [node name="Panel" type="Sprite2D" parent="GameOver"]
@@ -52,7 +71,7 @@ offset_right = 584.0
 offset_bottom = 249.0
 scale = Vector2(20.043, 12.1265)
 theme_override_fonts/font = ExtResource("10_bleom")
-text = "Game Over..."
+text = "Game Over!"
 
 [node name="PlayAgain" type="Sprite2D" parent="GameOver"]
 position = Vector2(1210, 773)
@@ -81,6 +100,8 @@ theme_override_fonts/font = ExtResource("10_bleom")
 text = "Play Again"
 
 [node name="Tutorial" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
 
 [node name="Background" type="Sprite2D" parent="Tutorial"]
 position = Vector2(1164, 567)
@@ -141,6 +162,34 @@ text = "- Combine gems at the alchemy table
   to create powerful potions to aid
   you in your adventures."
 
+[node name="GoButton" type="Button" parent="Tutorial/Background"]
+offset_left = 16.0
+offset_top = 30.0
+offset_right = 33.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8jkri")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ucj2u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0pifr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uo2wa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bo874")
+
+[node name="GoArrow" type="Sprite2D" parent="Tutorial/Background"]
+position = Vector2(25, 35.1)
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_nnsup")
+hframes = 2
+
+[node name="Go" type="Label" parent="Tutorial/Background/GoArrow"]
+offset_left = -6.4
+offset_top = 6.09524
+offset_right = 33.6
+offset_bottom = 29.0952
+rotation = -1.5708
+scale = Vector2(0.852742, 0.799867)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "Go!"
+
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
 position = Vector2(-938, 293)
 
@@ -153,7 +202,7 @@ position = Vector2(-91, 281)
 position = Vector2(-1188, 322)
 
 [node name="Shop" parent="." instance=ExtResource("6_tlerc")]
-position = Vector2(-1845, 103)
+position = Vector2(-1766, 102)
 scale = Vector2(5, 5)
 
 [node name="Alchemist" parent="." instance=ExtResource("7_r5ovd")]
@@ -188,7 +237,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MiningArea"]
-position = Vector2(485.25, 160.25)
+position = Vector2(2107.25, 160.25)
 shape = SubResource("RectangleShape2D_drd1y")
 
 [node name="IntroLoop" type="AudioStreamPlayer2D" parent="."]
@@ -196,11 +245,24 @@ stream = ExtResource("12_6lc61")
 autoplay = true
 max_distance = 20000.0
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+energy = 0.42
+blend_mode = 1
+
+[node name="MinesLight" type="PointLight2D" parent="."]
+position = Vector2(2071, 157)
+blend_mode = 1
+texture = SubResource("GradientTexture2D_uo2ff")
+
 [connection signal="pressed" from="GameOver/PlayAgain/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="Tutorial/Background/GoButton" to="." method="_on_go_button_pressed"]
 [connection signal="health_gone" from="Player" to="." method="_on_player_health_gone"]
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
 [connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
+[connection signal="lantern_purchased" from="Shop" to="." method="_on_shop_lantern_purchased"]
 [connection signal="stop_timer_dad" from="Shop" to="." method="_on_shop_stop_timer_dad"]
+[connection signal="win_game" from="Shop" to="." method="_on_shop_win_game"]
 [connection signal="dad_health_potion" from="Alchemist" to="." method="_on_alchemist_dad_health_potion"]
 [connection signal="fear_potion_drank" from="Alchemist" to="." method="_on_alchemist_fear_potion_drank"]
 [connection signal="you_health_potion" from="Alchemist" to="." method="_on_alchemist_you_health_potion"]

@@ -74,7 +74,7 @@ func _on_regain_energy_timeout():
 
 func _on_lose_energy_timeout():
 	var current_sanity = $RockNodeUI/SanityBar.value
-	$RockNodeUI/SanityBar.value -= 5
+	$RockNodeUI/SanityBar.value -= Global.sanity_bar_amount
 	if current_sanity <= 0:
 		$RockNodeUI/ProgressBar.value -= 10
 

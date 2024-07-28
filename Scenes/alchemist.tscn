@@ -1,7 +1,7 @@
 [gd_scene load_steps=73 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
-[ext_resource type="Script" path="res://Scenes/alchemist.gd" id="1_b7g03"]
+[ext_resource type="Script" path="res://Scripts/alchemist.gd" id="1_gluc0"]
 [ext_resource type="Texture2D" uid="uid://dpwqtlwwx40im" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_ytyaj"]
 [ext_resource type="Texture2D" uid="uid://b157jm05irlvi" path="res://Assets/Untitled 14.png" id="4_mrn3j"]
 [ext_resource type="Texture2D" uid="uid://bv3x5wicyrss5" path="res://Assets/gems.png" id="4_ojbbq"]
@@ -166,7 +166,7 @@ size = Vector2(57.5, 42)
 [node name="Alchemist" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_b7g03")
+script = ExtResource("1_gluc0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_506gj")

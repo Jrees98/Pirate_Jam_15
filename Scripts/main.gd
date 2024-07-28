@@ -12,6 +12,8 @@ func _ready():
 	Global.opal_chance = 50
 	Global.coal_chance = 1
 	
+	Global.sanity_bar_amount = 5
+	
 	Global.gem_price = 5
 	Global.coal_price = 2
 	
@@ -33,6 +35,8 @@ func _ready():
 	
 	Global.purchased_minecart = false
 	print($House/VBoxContainer/DadsHealthBar.value)
+	$Tutorial.show()
+	get_tree().paused = true
 
 
 
@@ -61,6 +65,7 @@ func _on_timer_timeout():
 func end_game():
 	print("Game Over")
 	$GameOver.show()
+	get_tree().paused = true
 	
 
 
@@ -82,13 +87,14 @@ func _on_shop_stop_timer_dad():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("god_mode") and OS.is_debug_build():
-		Global.total_gems = 1000
-		Global.total_greengem = 1000
-		Global.total_purplegem = 1000
-		Global.total_redgem = 1000
-		Global.total_whitegem = 1000
+		Global.total_gems = 100
+		Global.total_greengem = 100
+		Global.total_purplegem = 100
+		Global.total_redgem = 100
+		Global.total_whitegem = 100
 		Global.move_speed = 3000
-		Global.total_coins = 100000
+		Global.total_coins = 10000
+		Global.total_opals = 100
 
 func _on_alchemist_fear_potion_drank():
 	$Player/RockNodeUI/SanityBar.value += 50
@@ -110,3 +116,21 @@ func _on_player_health_gone():
 func _on_play_again_button_pressed():
 	get_tree().reload_current_scene()
 	print("working")
+
+
+func _on_shop_lantern_purchased():
+	Global.sanity_bar_amount = Global.sanity_bar_amount/2
+	$Player/LanternLight.show()
+
+
+func _on_shop_win_game():
+	$GameOver/Label.text = "  You win!"
+	$Shop/CanvasLayer.hide()
+	$GameOver.show()
+	get_tree().paused = true
+	
+
+
+func _on_go_button_pressed():
+	$Tutorial.hide()
+	get_tree().paused = false

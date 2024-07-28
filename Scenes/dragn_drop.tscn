@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cs2hon1qqdt5c"]
 
-[ext_resource type="Script" path="res://Scenes/dragn_drop.gd" id="1_hxamj"]
+[ext_resource type="Script" path="res://Scripts/dragn_drop.gd" id="1_hxamj"]
 
 [node name="DragnDrop" type="TextureRect"]
 custom_minimum_size = Vector2(50, 50)

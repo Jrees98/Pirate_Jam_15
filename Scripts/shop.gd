@@ -26,6 +26,8 @@ var mirror_cost := 250
 var cure_cost := 25
 
 signal stop_timer_dad
+signal win_game
+signal lantern_bought
 func _ready():
 	backpackIBought = false
 	backpackIIBought = false
@@ -56,7 +58,8 @@ func _on_backpack_1_mouse_exited():
 
 
 func _on_backpack_1_pressed():
-	if Global.total_opals >= 25:
+	if Global.total_opals >= cure_cost:
+		win_game.emit()
 		print("You Win!!!!!")
 
 ################## BACKPACK BUTTON END ######################
@@ -139,11 +142,12 @@ func _on_lantern_mouse_entered():
 func _on_lantern_mouse_exited():
 	$CanvasLayer/Panel/Lantern/ButtonSprite/Border1.hide()
 
-
+signal lantern_purchased
 func _on_lantern_pressed():
 	if Global.total_coins >= lantern_cost:
 		Global.total_coins = Global.total_coins - lantern_cost
 		$CanvasLayer/Panel/Lantern.queue_free()
+		lantern_purchased.emit()
 
 
 
