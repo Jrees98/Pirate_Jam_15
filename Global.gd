@@ -1,6 +1,7 @@
 extends Node
 
 var sanity_bar_amount
+var in_second_area : bool
 
 var total_coal : int
 var total_gems : int

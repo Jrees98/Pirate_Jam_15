@@ -653,10 +653,10 @@ text = "0"
 
 [node name="ToolTip" type="Label" parent="PotionsUI"]
 visible = false
-offset_left = 1047.0
-offset_top = 1001.0
-offset_right = 1087.0
-offset_bottom = 1024.0
+offset_left = 842.0
+offset_top = 519.0
+offset_right = 882.0
+offset_bottom = 542.0
 scale = Vector2(4.66008, 4.70319)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_kwlbv")

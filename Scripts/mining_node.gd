@@ -40,15 +40,41 @@ func mine():
 	$MiningCoolDown.start()
 
 func _on_mining_cool_down_timeout():
-		gem_chance()
 		coal_chance()
+		if Global.in_second_area == true:
+			gem_chance_2()
+		else:
+			gem_chance()
+
 
 func coal_chance():
 	var number = rng.randi_range(1,Global.coal_chance)
 	if number == 1:
-		Global.total_coal +=1
+		if Global.in_second_area:
+			Global.total_coal += 1
+		else:
+			Global.total_coal += 1
 	
 func gem_chance():
+	var number = rng.randi_range(1,Global.blue_gem_chance * 2)
+	var greenNumber = rng.randi_range(1, Global.emerald_chance * 2)
+	var purpleNumber = rng.randi_range(1, Global.amethyst_chance * 2)
+	var redNumber = rng.randi_range(1, Global.ruby_chance * 2)
+	var whiteNumber = rng.randi_range(1, Global.sapphire_chance * 2)
+	var opalNumber = rng.randi_range(1, Global.opal_chance * 2)
+	
+	if number == 1:
+		Global.total_gems +=1
+	if greenNumber == 1:
+		Global.total_greengem += 1
+	if purpleNumber == 1:
+		Global.total_purplegem += 1
+	if redNumber == 1:
+		Global.total_redgem += 1
+	if whiteNumber == 1:
+		Global.total_whitegem += 1
+
+func gem_chance_2():
 	var number = rng.randi_range(1,Global.blue_gem_chance)
 	var greenNumber = rng.randi_range(1, Global.emerald_chance)
 	var purpleNumber = rng.randi_range(1, Global.amethyst_chance)

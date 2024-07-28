@@ -15,7 +15,7 @@ func _ready():
 	Global.sanity_bar_amount = 5
 	
 	Global.gem_price = 5
-	Global.coal_price = 2
+	Global.coal_price = 4
 	
 	Global.total_coins = 0
 	
@@ -65,6 +65,8 @@ func _on_timer_timeout():
 func end_game():
 	print("Game Over")
 	$GameOver.show()
+	$Shop/CanvasLayer.hide()
+	$Alchemist/CanvasLayer.hide()
 	get_tree().paused = true
 	
 
@@ -119,7 +121,7 @@ func _on_play_again_button_pressed():
 
 
 func _on_shop_lantern_purchased():
-	Global.sanity_bar_amount = Global.sanity_bar_amount/2
+	Global.sanity_bar_amount = Global.sanity_bar_amount/1.5
 	$Player/LanternLight.show()
 
 
@@ -134,3 +136,11 @@ func _on_shop_win_game():
 func _on_go_button_pressed():
 	$Tutorial.hide()
 	get_tree().paused = false
+
+
+func _on_second_area_body_entered(body):
+	Global.in_second_area = true
+
+
+func _on_second_area_body_exited(body):
+	Global.in_second_area = false

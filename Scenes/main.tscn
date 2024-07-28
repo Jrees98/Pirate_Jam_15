@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=30 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -50,6 +50,8 @@ offsets = PackedFloat32Array(0, 0.720779)
 gradient = SubResource("Gradient_sbmv4")
 width = 6000
 height = 500
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70veu"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
@@ -194,7 +196,7 @@ text = "Go!"
 position = Vector2(-938, 293)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
-position = Vector2(-91, 281)
+position = Vector2(2626, 290)
 
 [node name="TileMap" parent="." instance=ExtResource("4_qtfcr")]
 
@@ -245,15 +247,31 @@ stream = ExtResource("12_6lc61")
 autoplay = true
 max_distance = 20000.0
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
-energy = 0.42
-blend_mode = 1
-
 [node name="MinesLight" type="PointLight2D" parent="."]
 position = Vector2(2071, 157)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_uo2ff")
+
+[node name="second_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="second_area"]
+position = Vector2(2626, 301)
+scale = Vector2(11.3343, 8.68287)
+shape = SubResource("CircleShape2D_70veu")
+
+[node name="MiningNode2" parent="." instance=ExtResource("4_c3t3l")]
+position = Vector2(601, 288)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 487.0
+offset_top = 152.0
+offset_right = 625.0
+offset_bottom = 175.0
+scale = Vector2(1.90164, 3.40322)
+theme_override_fonts/font = ExtResource("10_bleom")
+text = "Continue further to find gems!"
 
 [connection signal="pressed" from="GameOver/PlayAgain/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="Tutorial/Background/GoButton" to="." method="_on_go_button_pressed"]
@@ -269,3 +287,5 @@ texture = SubResource("GradientTexture2D_uo2ff")
 [connection signal="timeout" from="House/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="MiningArea" to="." method="_on_mining_area_body_entered"]
 [connection signal="body_exited" from="MiningArea" to="." method="_on_mining_area_body_exited"]
+[connection signal="body_entered" from="second_area" to="." method="_on_second_area_body_entered"]
+[connection signal="body_exited" from="second_area" to="." method="_on_second_area_body_exited"]

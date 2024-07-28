@@ -169,6 +169,7 @@ func _on_minecart_pressed():
 		Global.total_coins = Global.total_coins - minecart_cost
 		$CanvasLayer/Panel/Minecart.queue_free()
 		Global.purchased_minecart = true
+		Global.move_speed = 3000
 	
 ################## MINECART BUTTON END ######################
 

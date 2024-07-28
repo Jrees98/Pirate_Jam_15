@@ -16,7 +16,7 @@ var total_luck_potions : int
 var total_fear_potions : int
 
 var potion_recipes = {
-	"Health Potion": "Diamond Emerald Ruby",
+	"Health Potion": "Diamond Emerald Sapphire",
 	"Mining Potion": "Amethyst Diamond Sapphire",
 	"Luck Potion": "Amethyst Diamond Ruby",
 	"Fear Potion": "Emerald Ruby Sapphire"
@@ -277,7 +277,7 @@ func _on_combine_button_pressed():
 func _on_luck_potion_button_mouse_entered():
 	$PotionsUI/LuckPotion/LuckPotionSelector.show()
 	$PotionsUI/ToolTip.show()
-	$PotionsUI/ToolTip.text = "Luck Potion"
+	$PotionsUI/ToolTip.text = "Luck Potion: \n I wonder what gems \n I can find with this active"
 
 func _on_luck_potion_button_mouse_exited():
 	$PotionsUI/LuckPotion/LuckPotionSelector.hide()
@@ -311,7 +311,7 @@ func _on_luck_timer_timeout():
 func _on_mining_potion_button_mouse_entered():
 	$PotionsUI/MiningPotion/MiningPotionSelector.show()
 	$PotionsUI/ToolTip.show()
-	$PotionsUI/ToolTip.text = "Mining Potion"
+	$PotionsUI/ToolTip.text = "Mining Potion: \n Super Fast!!!"
 
 
 func _on_mining_potion_button_mouse_exited():
@@ -351,7 +351,7 @@ func _on_mining_timer_timeout():
 func _on_fear_potion_button_mouse_entered():
 	$PotionsUI/FearPotion/FearPotionSelector.show()
 	$PotionsUI/ToolTip.show()
-	$PotionsUI/ToolTip.text = "Fear Potion"
+	$PotionsUI/ToolTip.text = "Fear Potion: \n Helps that purple \n bar feel better"
 
 func _on_fear_potion_button_mouse_exited():
 	$PotionsUI/FearPotion/FearPotionSelector.hide()
@@ -372,7 +372,7 @@ func _on_fear_potion_button_pressed():
 func _on_health_potion_button_mouse_entered():
 	$PotionsUI/HealthPotion/HealthPotionSelector.show()
 	$PotionsUI/ToolTip.show()
-	$PotionsUI/ToolTip.text = "Health Potion"
+	$PotionsUI/ToolTip.text = "Health Potion: \n Oh the choices..."
 
 
 func _on_health_potion_button_mouse_exited():

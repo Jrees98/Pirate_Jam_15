@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://0v7jd01x8glb"]
+[gd_scene load_steps=41 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
 [ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://pdom4vs0mqf6" path="res://Assets/Untitled 20.png" id="11_vpsep"]
 [ext_resource type="Texture2D" uid="uid://hryl0q3e7hr6" path="res://Assets/opal.png" id="12_ht1iw"]
 [ext_resource type="Texture2D" uid="uid://46wyfoxca4u0" path="res://Assets/backpack.png" id="13_f76i6"]
+[ext_resource type="Texture2D" uid="uid://dxw4ehiic2cl7" path="res://Assets/arrow.png" id="15_62s8n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2utf6"]
 atlas = ExtResource("4_imsym")
@@ -153,6 +154,27 @@ height = 256
 fill = 1
 fill_from = Vector2(0.56422, 0.555046)
 fill_to = Vector2(0.568807, 0.123853)
+
+[sub_resource type="Animation" id="Animation_cjjfo"]
+resource_name = "arrow_move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RockNodeUI/Arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(105, 1014), Vector2(105, 900)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jxh7j"]
+_data = {
+"arrow_move": SubResource("Animation_cjjfo")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -360,6 +382,13 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_7lfas")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_an1ty")
 toggle_mode = true
 
+[node name="Arrow" type="Sprite2D" parent="RockNodeUI"]
+position = Vector2(105, 900)
+rotation = 3.14159
+scale = Vector2(4, 4)
+texture = ExtResource("15_62s8n")
+hframes = 2
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 limit_top = -200
@@ -375,6 +404,12 @@ position = Vector2(-17, 0)
 color = Color(1, 0.760784, 0.309804, 1)
 energy = 4.89
 texture = SubResource("GradientTexture2D_g1s3g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jxh7j")
+}
+autoplay = "arrow_move"
 
 [connection signal="timeout" from="RockNodeUI/SanityBar/RegainEnergy" to="." method="_on_regain_energy_timeout"]
 [connection signal="timeout" from="RockNodeUI/SanityBar/LoseEnergy" to="." method="_on_lose_energy_timeout"]
