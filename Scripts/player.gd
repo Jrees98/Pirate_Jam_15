@@ -46,6 +46,8 @@ func check_mining():
 func check_minecart():
 	if Input.is_action_just_pressed("minecart") and Global.purchased_minecart == true:
 		$AnimatedSprite2D.play("minecart")
+		Global.move_speed = 3000
+		$RockNodeUI/MinecartLabel.hide()
 		in_minecart = true
 
 

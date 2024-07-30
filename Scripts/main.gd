@@ -148,4 +148,4 @@ func _on_second_area_body_exited(body):
 
 
 func _on_shop_equip_minecart():
-	$Player/AnimatedSprite2D.play("minecart")
+	$Player/RockNodeUI/MinecartLabel.show()

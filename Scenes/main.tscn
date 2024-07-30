@@ -271,13 +271,13 @@ shape = SubResource("CircleShape2D_70veu")
 position = Vector2(601, 288)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 487.0
-offset_top = 152.0
-offset_right = 625.0
-offset_bottom = 175.0
+offset_left = 404.0
+offset_top = 150.0
+offset_right = 632.0
+offset_bottom = 173.0
 scale = Vector2(1.90164, 3.40322)
 theme_override_fonts/font = ExtResource("10_bleom")
-text = "Continue further to find gems!"
+text = "Gems are more common at the next node!"
 
 [node name="WorldBoundaryLeft" type="StaticBody2D" parent="."]
 position = Vector2(-4400, 96)
