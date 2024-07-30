@@ -19,7 +19,7 @@ var potion_recipes = {
 	"Health Potion": "Diamond Emerald Sapphire",
 	"Mining Potion": "Amethyst Diamond Sapphire",
 	"Luck Potion": "Amethyst Diamond Ruby",
-	"Fear Potion": "Emerald Ruby Sapphire"
+	"Fear Potion": "Diamond Emerald Ruby"
 }
 
 
@@ -249,23 +249,29 @@ func _on_combine_button_pressed():
 			Global.total_whitegem -= 1
 	
 	var sorted_gems = str(" ").join(sorted_gems_array)
-	
+	var found_potion = false
 	for key in potion_recipes.keys():
 		if potion_recipes[key] == sorted_gems:
 			potion = key
-			print(potion)
+			found_potion = true
 			if potion == "Health Potion":
 				total_health_potions += 1
 				$PotionsUI/HealthPotion/HealthPotionQuantity.text = str(total_health_potions)
+				$got_potion.play()
 			elif potion == "Mining Potion":
 				total_mining_potions += 1
 				$PotionsUI/MiningPotion/MiningPotionQuantity.text = str(total_mining_potions)
+				$got_potion.play()
 			elif potion == "Luck Potion":
 				total_luck_potions += 1
 				$PotionsUI/LuckPotion/LuckPotionQuantity.text = str(total_luck_potions)
+				$got_potion.play()
 			elif potion == "Fear Potion":
 				total_fear_potions += 1
 				$PotionsUI/FearPotion/FearPotionQuantity.text = str(total_fear_potions)
+				$got_potion.play()
+	if not found_potion:
+		$fail_potion.play()
 				
 			
 	reload_table()

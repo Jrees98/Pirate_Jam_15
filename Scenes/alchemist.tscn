@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cn65df43la0dm"]
+[gd_scene load_steps=75 format=3 uid="uid://cn65df43la0dm"]
 
 [ext_resource type="Texture2D" uid="uid://daff0g277dbso" path="res://Assets/Untitled 22.png" id="1_17htp"]
 [ext_resource type="Script" path="res://Scripts/alchemist.gd" id="1_gluc0"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dapy1kgvmfcq1" path="res://Assets/Pots.png" id="12_ga6ye"]
 [ext_resource type="Texture2D" uid="uid://b7vus2ece4ogd" path="res://Assets/exit.png" id="13_4ry84"]
 [ext_resource type="AudioStream" uid="uid://d3vffpkglabue" path="res://Assets/sounds/alchemy_station.wav" id="14_c24q8"]
+[ext_resource type="AudioStream" uid="uid://c5art1i530e3s" path="res://Assets/sounds/pickupCoin.wav" id="15_o8pg4"]
+[ext_resource type="AudioStream" uid="uid://vy1yar8uiwp1" path="res://Assets/sounds/hitHurt.wav" id="16_q1yp3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qv2i"]
 atlas = ExtResource("1_17htp")
@@ -725,6 +727,12 @@ stream = ExtResource("14_c24q8")
 volume_db = 24.0
 autoplay = true
 max_distance = 500.0
+
+[node name="got_potion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_o8pg4")
+
+[node name="fail_potion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_q1yp3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

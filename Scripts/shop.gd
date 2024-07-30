@@ -163,13 +163,13 @@ func _on_minecart_mouse_entered():
 func _on_minecart_mouse_exited():
 	$CanvasLayer/Panel/Minecart/ButtonSprite/Border1.hide()
 
-
+signal equip_minecart
 func _on_minecart_pressed():
 	if Global.total_coins >= minecart_cost:
 		Global.total_coins = Global.total_coins - minecart_cost
 		$CanvasLayer/Panel/Minecart.queue_free()
 		Global.purchased_minecart = true
-		Global.move_speed = 3000
+		equip_minecart.emit()
 	
 ################## MINECART BUTTON END ######################
 

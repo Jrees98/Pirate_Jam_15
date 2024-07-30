@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=32 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -52,6 +52,12 @@ width = 6000
 height = 500
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_70veu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nfjtu"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nvhef"]
+normal = Vector2(-0.999866, -0.0163912)
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
@@ -193,7 +199,7 @@ theme_override_fonts/font = ExtResource("10_bleom")
 text = "Go!"
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-938, 293)
+position = Vector2(-5882, 297)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(2626, 290)
@@ -273,11 +279,29 @@ scale = Vector2(1.90164, 3.40322)
 theme_override_fonts/font = ExtResource("10_bleom")
 text = "Continue further to find gems!"
 
+[node name="WorldBoundaryLeft" type="StaticBody2D" parent="."]
+position = Vector2(-4400, 96)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaryLeft"]
+position = Vector2(-1994, 66)
+shape = SubResource("WorldBoundaryShape2D_nfjtu")
+
+[node name="WorldRight" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldRight"]
+position = Vector2(4300, 250)
+shape = SubResource("WorldBoundaryShape2D_nvhef")
+
 [connection signal="pressed" from="GameOver/PlayAgain/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="Tutorial/Background/GoButton" to="." method="_on_go_button_pressed"]
 [connection signal="health_gone" from="Player" to="." method="_on_player_health_gone"]
 [connection signal="change_area" from="TileMap" to="." method="_on_tile_map_change_area"]
 [connection signal="wagon_entered" from="Wagon" to="." method="_on_wagon_wagon_entered"]
+[connection signal="equip_minecart" from="Shop" to="." method="_on_shop_equip_minecart"]
 [connection signal="lantern_purchased" from="Shop" to="." method="_on_shop_lantern_purchased"]
 [connection signal="stop_timer_dad" from="Shop" to="." method="_on_shop_stop_timer_dad"]
 [connection signal="win_game" from="Shop" to="." method="_on_shop_win_game"]

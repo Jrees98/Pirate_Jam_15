@@ -38,8 +38,10 @@ func check_mining():
 	if Input.is_action_just_pressed("interact"):
 		is_mining = true
 		$AnimatedSprite2D.play("mining")
+		$AudioStreamPlayer2D.play()
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		is_mining = false
+		$AudioStreamPlayer2D.stop()
 
 func check_minecart():
 	if Input.is_action_just_pressed("minecart") and Global.purchased_minecart == true:

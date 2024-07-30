@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://0v7jd01x8glb"]
+[gd_scene load_steps=42 format=3 uid="uid://0v7jd01x8glb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gr4sc"]
 [ext_resource type="Texture2D" uid="uid://dvc2fmeimrhrm" path="res://Assets/miner.png" id="2_yy3j8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://hryl0q3e7hr6" path="res://Assets/opal.png" id="12_ht1iw"]
 [ext_resource type="Texture2D" uid="uid://46wyfoxca4u0" path="res://Assets/backpack.png" id="13_f76i6"]
 [ext_resource type="Texture2D" uid="uid://dxw4ehiic2cl7" path="res://Assets/arrow.png" id="15_62s8n"]
+[ext_resource type="AudioStream" uid="uid://cebgu0en5y23g" path="res://Assets/sounds/picktgrimmed.wav" id="16_f11m7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2utf6"]
 atlas = ExtResource("4_imsym")
@@ -229,7 +230,6 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="RockNodeUI"]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -366,6 +366,7 @@ fill_mode = 3
 show_percentage = false
 
 [node name="BackpackToggleButton" type="Sprite2D" parent="RockNodeUI"]
+visible = false
 position = Vector2(112, 1182)
 scale = Vector2(5, 5)
 texture = ExtResource("13_f76i6")
@@ -383,6 +384,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_an1ty")
 toggle_mode = true
 
 [node name="Arrow" type="Sprite2D" parent="RockNodeUI"]
+visible = false
 position = Vector2(105, 900)
 rotation = 3.14159
 scale = Vector2(4, 4)
@@ -410,6 +412,9 @@ libraries = {
 "": SubResource("AnimationLibrary_jxh7j")
 }
 autoplay = "arrow_move"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_f11m7")
 
 [connection signal="timeout" from="RockNodeUI/SanityBar/RegainEnergy" to="." method="_on_regain_energy_timeout"]
 [connection signal="timeout" from="RockNodeUI/SanityBar/LoseEnergy" to="." method="_on_lose_energy_timeout"]

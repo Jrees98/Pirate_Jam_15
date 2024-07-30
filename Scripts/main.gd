@@ -19,6 +19,7 @@ func _ready():
 	
 	Global.total_coins = 0
 	
+	Global.total_coal = 0
 	Global.total_gems = 0
 	Global.total_greengem = 0
 	Global.total_purplegem = 0
@@ -144,3 +145,7 @@ func _on_second_area_body_entered(body):
 
 func _on_second_area_body_exited(body):
 	Global.in_second_area = false
+
+
+func _on_shop_equip_minecart():
+	$Player/AnimatedSprite2D.play("minecart")
