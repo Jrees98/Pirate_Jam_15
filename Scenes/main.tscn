@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bskcarm0vpkc8"]
+[gd_scene load_steps=34 format=3 uid="uid://bskcarm0vpkc8"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_q3ypa"]
 [ext_resource type="PackedScene" uid="uid://0v7jd01x8glb" path="res://Scenes/player.tscn" id="2_sw14p"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://25x7b7jx8ybm" path="res://Assets/UI_Flat_Textfield_01.png" id="11_pp2ck"]
 [ext_resource type="AudioStream" uid="uid://o8wmrwg0cerl" path="res://Assets/sounds/home_loop.wav" id="12_6lc61"]
 [ext_resource type="Texture2D" uid="uid://dapy1kgvmfcq1" path="res://Assets/Pots.png" id="14_fm1w8"]
+[ext_resource type="AudioStream" uid="uid://cbg4c8gfvjgpw" path="res://Assets/sounds/cave_music.wav" id="15_qd2y0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esdka"]
 
@@ -200,7 +201,7 @@ theme_override_fonts/font = ExtResource("10_bleom")
 text = "Go!"
 
 [node name="Player" parent="." instance=ExtResource("2_sw14p")]
-position = Vector2(-1722, 296)
+position = Vector2(-5918, 299)
 
 [node name="MiningNode" parent="." instance=ExtResource("4_c3t3l")]
 position = Vector2(2626, 290)
@@ -208,7 +209,6 @@ position = Vector2(2626, 290)
 [node name="TileMap" parent="." instance=ExtResource("4_qtfcr")]
 
 [node name="Wagon" parent="." instance=ExtResource("5_xqjqi")]
-visible = false
 position = Vector2(-1188, 322)
 
 [node name="Shop" parent="." instance=ExtResource("6_tlerc")]
@@ -251,9 +251,9 @@ position = Vector2(2107.25, 160.25)
 shape = SubResource("RectangleShape2D_drd1y")
 
 [node name="IntroLoop" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-5128, 45)
 stream = ExtResource("12_6lc61")
 autoplay = true
-max_distance = 20000.0
 
 [node name="MinesLight" type="PointLight2D" parent="."]
 position = Vector2(2071, 157)
@@ -299,11 +299,13 @@ position = Vector2(4300, 250)
 shape = SubResource("WorldBoundaryShape2D_nvhef")
 
 [node name="Pots" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-1706, 167)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("14_fm1w8")
 
 [node name="Voodoo Veins" type="Label" parent="."]
+visible = false
 offset_left = -1991.0
 offset_top = -70.0
 offset_right = -1415.0
@@ -312,6 +314,12 @@ theme_override_colors/font_color = Color(0.65098, 0.454902, 0.984314, 1)
 theme_override_fonts/font = ExtResource("10_bleom")
 theme_override_font_sizes/font_size = 128
 text = "VOODOO VEINS"
+
+[node name="CaveMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1376, 9)
+stream = ExtResource("15_qd2y0")
+autoplay = true
+max_distance = 4000.0
 
 [connection signal="pressed" from="GameOver/PlayAgain/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="Tutorial/Background/GoButton" to="." method="_on_go_button_pressed"]

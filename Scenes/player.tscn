@@ -186,7 +186,7 @@ script = ExtResource("1_gr4sc")
 z_index = 3
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lmb3k")
-animation = &"minecart"
+animation = &"mining"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
